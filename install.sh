@@ -52,17 +52,24 @@ PACKAGES=(
     otf-font-awesome
 )
 
-log_info "Installing core system packages via pacman..."
-if sudo pacman -S --needed --noconfirm "${PACKAGES[@]}"; then
-    log_success "All packages installed/verified successfully."
+# Check if any package is missing
+MISSING_PACKAGES=()
+for pkg in "${PACKAGES[@]}"; do
+    if ! pacman -Qi "$pkg" &>/dev/null; then
+        MISSING_PACKAGES+=("$pkg")
+    fi
+done
+
+if [ ${#MISSING_PACKAGES[@]} -gt 0 ]; then
+    log_info "Installing missing system packages via pacman: ${MISSING_PACKAGES[*]}"
+    if sudo pacman -S --needed --noconfirm "${MISSING_PACKAGES[@]}"; then
+        log_success "All missing packages installed successfully."
+    else
+        log_error "Failed to install some packages. Please install them manually."
+        exit 1
+    fi
 else
-    log_warn "Standard pacman installation failed or was interrupted. Trying to install packages individually..."
-    for pkg in "${PACKAGES[@]}"; do
-        if ! pacman -Qi "$pkg" &>/dev/null; then
-            log_info "Installing $pkg..."
-            sudo pacman -S --needed --noconfirm "$pkg" || log_error "Failed to install $pkg. You may need to install it manually."
-        fi
-    done
+    log_success "All core packages are already installed."
 fi
 
 # --- Create Symlinks Helper ---
