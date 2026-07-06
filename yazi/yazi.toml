@@ -1,0 +1,27 @@
+# yazi.toml - General configuration settings for Yazi file manager
+
+[manager]
+# Width ratio of panels (parent column, current column, preview column)
+ratio = [ 1, 4, 3 ]
+
+# Do not show hidden files by default (toggle with '.')
+show_hidden = false
+
+# Show symbolic link targets next to filenames
+show_symlink = true
+
+[preview]
+# Wrap long lines in text file previews
+wrap = "yes"
+
+# Snappy image previews: maximum width boundary
+max_width = 1600
+
+# Snappy image previews: maximum height boundary
+max_height = 1600
+
+# Image quality of generated previews (percentage)
+image_quality = 75
+
+# Wait 0 milliseconds before rendering image preview to keep scrolling fast
+image_delay = 0

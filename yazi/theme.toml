@@ -1,0 +1,127 @@
+# theme.toml - Color scheme and style customization for Yazi file manager
+# Palette from DESIGN.md: Ink (#0B0B0C), Paper (#F0F5F5), Blue (#0053D6), Purple (#A261FF)
+
+[app]
+# Sets overall foreground to Paper (#F0F5F5) and background to Ink (#0B0B0C)
+overall = { fg = "#F0F5F5", bg = "#0B0B0C" }
+
+[manager]
+# Current working directory styling (primary Blue accent)
+cwd = { fg = "#0053D6", bold = true }
+
+# Character used to draw separation borders
+border_symbol = "│"
+
+# Color of the manager layout borders (secondary Purple accent)
+border_style = { fg = "#A261FF" }
+
+# Selection markers on the file list (primary Blue accent)
+marker_copied   = { fg = "#D4FFED", bg = "#D4FFED" } # Mint badge for copy mode
+marker_cut      = { fg = "#FFE6F0", bg = "#FFE6F0" } # Pink badge for cut mode
+marker_marked   = { fg = "#A261FF", bg = "#A261FF" } # Purple badge for marks
+marker_selected = { fg = "#0053D6", bg = "#0053D6" } # Blue badge for multi-select
+
+# Selected counts color styling in status/manager
+count_copied   = { fg = "#D4FFED", bg = "#0B0B0C" }
+count_cut      = { fg = "#FFE6F0", bg = "#0B0B0C" }
+count_selected = { fg = "#0053D6", bg = "#0B0B0C" }
+
+[indicator]
+# Style of hovered item in current active pane (Purple hover background, Ink text for high-contrast readability)
+current = { fg = "#0B0B0C", bg = "#A261FF", bold = true }
+
+# Style of hovered item in parent pane (Blue background, Paper text)
+parent  = { fg = "#F0F5F5", bg = "#0053D6" }
+
+# Hovered item in preview pane gets underlined
+preview = { underline = true }
+
+[status]
+# Overall status line styling
+overall = { fg = "#F0F5F5", bg = "#0B0B0C" }
+
+# Normal mode indicator (primary Blue accent)
+mode_normal = { fg = "#0B0B0C", bg = "#0053D6", bold = true }
+
+# Selection mode indicator (secondary Purple accent)
+mode_select = { fg = "#0B0B0C", bg = "#A261FF", bold = true }
+
+# Unset/other modes indicator (Yellow alert accent)
+mode_unset  = { fg = "#0B0B0C", bg = "#FFDB13", bold = true }
+
+# Progress bar labels
+progress_label  = { fg = "#F0F5F5", bold = true }
+progress_normal = { fg = "#0053D6", bg = "#0B0B0C" }
+progress_error  = { fg = "#FFDB13", bg = "#0B0B0C" }
+
+# Permissions column separation styling
+perm_sep  = { fg = "#7C3AE0" } # Dim purple
+perm_type = { fg = "#0053D6" } # Blue
+perm_read = { fg = "#FFDB13" } # Yellow
+perm_write= { fg = "#FFE6F0" } # Pink tint
+perm_exec = { fg = "#D4FFED" } # Mint tint
+
+[input]
+# Input prompt border color (Blue)
+border   = { fg = "#0053D6" }
+title    = {}
+value    = {}
+selected = { bg = "#003A99" } # Dim blue for highlights
+
+[pick]
+# Selection popup border color (Purple)
+border   = { fg = "#A261FF" }
+active   = { fg = "#A261FF", bold = true }
+inactive = {}
+
+[completion]
+# Autocomplete popup border color (Blue)
+border   = { fg = "#0053D6" }
+active   = { fg = "#0053D6", bg = "#003A99", bold = true }
+inactive = {}
+
+[tasks]
+# Tasks popup border color (Blue)
+border = { fg = "#0053D6" }
+title  = { fg = "#F0F5F5", bold = true }
+hover  = { fg = "#0B0B0C", bg = "#A261FF" }
+
+[which]
+# Key chord panel style
+mask = { bg = "#0B0B0C" }
+cand = { fg = "#D4FFED" } # Mint tint
+rest = { fg = "#7C3AE0" } # Dim purple
+desc = { fg = "#FFE6F0" } # Pink tint
+separator = " ➔ "
+separator_style = { fg = "#0053D6" }
+
+[help]
+# Help screen command/key/desc styling
+on   = { fg = "#0053D6" }
+run  = { fg = "#A261FF" }
+desc = { fg = "#F0F5F5" }
+hover = { fg = "#0B0B0C", bg = "#A261FF" }
+
+[filetype]
+# Colors of listed files based on type and MIME type
+rules = [
+  # Folders/Directories (primary Blue accent, bold text)
+  { name = "*/", fg = "#0053D6", bold = true },
+  
+  # Media - Images/Videos/Audio (secondary Purple accent)
+  { mime = "image/*", fg = "#A261FF" },
+  { mime = "video/*", fg = "#A261FF" },
+  { mime = "audio/*", fg = "#A261FF" },
+  
+  # Archives and Compressed Files (Mint tint)
+  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#8FE8BC" },
+  
+  # Text files (Paper color)
+  { mime = "text/*", fg = "#F0F5F5" },
+  
+  # Documents/PDFs (Peach tint)
+  { mime = "application/{pdf,epub+zip,postscript,x-shockwave-flash}", fg = "#FFD48A" },
+
+  # Fallback rule for all other files (Paper color)
+  { mime = "*", fg = "#F0F5F5" }
+]

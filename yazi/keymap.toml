@@ -1,0 +1,26 @@
+# keymap.toml - Keybindings configuration for Yazi file manager
+# Custom rules prepend/prioritize over defaults
+
+[[manager.prepend_keymap]]
+# 'h' key moves out of the current directory to parent
+on   = [ "h" ]
+run  = "leave"
+desc = "Go back to the parent directory"
+
+[[manager.prepend_keymap]]
+# 'j' key moves selection cursor down by 1 item
+on   = [ "j" ]
+run  = "arrow 1"
+desc = "Move cursor down"
+
+[[manager.prepend_keymap]]
+# 'k' key moves selection cursor up by 1 item
+on   = [ "k" ]
+run  = "arrow -1"
+desc = "Move cursor up"
+
+[[manager.prepend_keymap]]
+# 'l' key enters directories or runs default opener on files
+on   = [ "l" ]
+run  = "enter"
+desc = "Enter the child directory or open file"
