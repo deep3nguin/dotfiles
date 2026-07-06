@@ -12,7 +12,7 @@ Neither file is ever modified by domain agents.
 
 | Agent | Owns (read/write) | Never touches |
 |---|---|---|
-| Agent-Hypr | `hypr/hyprland.conf`, `hypr/keybinds.conf`, `hypr/monitors.conf`, `hypr/autostart.conf`, `hypr/rules.conf`, `hypr/animations.conf` | `hypr/hyprpaper.conf` (owned by Agent-Hyprpaper) |
+| Agent-Hypr | `hypr/hyprland.lua`, `hypr/keybinds.lua`, `hypr/monitors.lua`, `hypr/autostart.lua`, `hypr/rules.lua`, `hypr/animations.lua` | `hypr/hyprpaper.conf` (owned by Agent-Hyprpaper) |
 | Agent-Waybar | `waybar/config.jsonc`, `waybar/style.css` | anything outside `waybar/` |
 | Agent-Fuzzel | `fuzzel/fuzzel.ini` | anything outside `fuzzel/` |
 | Agent-Hyprpaper | `hypr/hyprpaper.conf`, `scripts/wallpaper.sh` | any other file in `hypr/` |

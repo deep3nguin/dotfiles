@@ -24,13 +24,13 @@ dotfiles/
 ├── fuzzel/
 │   └── fuzzel.ini          # Application launcher configuration
 ├── hypr/
-│   ├── hyprland.conf       # Main compositor configuration
-│   ├── keybinds.conf       # Custom Vim-style keybindings
-│   ├── monitors.conf       # Display configuration
-│   ├── autostart.conf      # Startup service calls (Waybar/Hyprpaper)
-│   ├── rules.conf          # Window-specific routing rules
-│   ├── animations.conf     # Transition and bezier settings
-│   └── hyprpaper.conf      # Wallpaper settings
+│   ├── hyprland.lua        # Main compositor configuration (Lua format)
+│   ├── keybinds.lua        # Custom Vim-style keybindings (Lua format)
+│   ├── monitors.lua        # Display configuration (Lua format)
+│   ├── autostart.lua       # Startup service calls (Lua format)
+│   ├── rules.lua           # Window-specific routing rules (Lua format)
+│   ├── animations.lua      # Transition and bezier settings (Lua format)
+│   └── hyprpaper.conf      # Wallpaper settings (Hyprpaper format)
 ├── scripts/
 │   └── wallpaper.sh        # Hot-reload wallpaper management script
 ├── waybar/

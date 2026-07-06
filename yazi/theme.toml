@@ -106,7 +106,7 @@ hover = { fg = "#0B0B0C", bg = "#A261FF" }
 # Colors of listed files based on type and MIME type
 rules = [
   # Folders/Directories (primary Blue accent, bold text)
-  { name = "*/", fg = "#0053D6", bold = true },
+  { url = "*/", fg = "#0053D6", bold = true },
   
   # Media - Images/Videos/Audio (secondary Purple accent)
   { mime = "image/*", fg = "#A261FF" },
