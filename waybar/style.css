@@ -1,0 +1,201 @@
+/* Base reset and global font definition */
+* {
+    /* Define JetBrains Mono as the primary typeface */
+    font-family: "JetBrains Mono", sans-serif;
+    /* Adjust base size for high legibility */
+    font-size: 13px;
+    /* Reset margins for consistent layout spacing */
+    margin: 0;
+    /* Reset paddings for consistent layout spacing */
+    padding: 0;
+}
+
+/* Base style for the Waybar container */
+#waybar {
+    /* Ink color #0B0B0C with 85% transparency as background */
+    background-color: rgba(11, 11, 12, 0.85);
+    /* Subtle light border around the bar for glass effect */
+    border: 1px solid rgba(240, 245, 245, 0.1);
+    /* Apply radius_sm (12px) border radius for styling */
+    border-radius: 12px;
+    /* Default paper color #F0F5F5 for text */
+    color: #F0F5F5;
+}
+
+/* Individual left, center, right modules groups container */
+.modules-left,
+.modules-center,
+.modules-right {
+    /* Padding to vertically center the inner modules */
+    padding: 4px;
+}
+
+/* Style for active window title display module */
+#window {
+    /* Add padding to prevent text sticking to workspaces */
+    padding: 0 12px;
+    /* Default text color matching paper design token */
+    color: #F0F5F5;
+    /* Medium weight for titles */
+    font-weight: 500;
+}
+
+/* Styling for workspace module container */
+#workspaces {
+    /* Space between workspace switcher and window title */
+    margin-right: 8px;
+}
+
+/* Style for individual workspace buttons */
+#workspaces button {
+    /* Spacing inside workspace indicators */
+    padding: 0 10px;
+    /* Muted text color for inactive workspace elements */
+    color: rgba(240, 245, 245, 0.4);
+    /* Set rounded corners matching radius_sm */
+    border-radius: 12px;
+    /* Smooth hover and focus animations */
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Workspace button hover status */
+#workspaces button:hover {
+    /* Light tint overlay on hover */
+    background-color: rgba(240, 245, 245, 0.1);
+    /* Brightened text color */
+    color: #F0F5F5;
+}
+
+/* Styling for the active workspace module */
+#workspaces button.active {
+    /* Accent color Blue from DESIGN.md */
+    background-color: #0053D6;
+    /* High contrast paper text */
+    color: #F0F5F5;
+    /* Radius sm for active state capsule */
+    border-radius: 12px;
+}
+
+/* Styling for urgent workspaces with warnings */
+#workspaces button.urgent {
+    /* High alert Yellow color from DESIGN.md */
+    background-color: #FFDB13;
+    /* Ink text color for contrast readability */
+    color: #0B0B0C;
+}
+
+/* Central clock module styling */
+#clock {
+    /* Purple secondary accent fill from DESIGN.md */
+    background-color: #A261FF;
+    /* Paper color text for solid fills */
+    color: #F0F5F5;
+    /* Capsule padding */
+    padding: 0 16px;
+    /* Border-radius matching shape scale */
+    border-radius: 12px;
+    /* Bolder weight for clock readability */
+    font-weight: bold;
+}
+
+/* PulseAudio volume indicator module */
+#pulseaudio {
+    /* Mint badge background from DESIGN.md */
+    background-color: #D4FFED;
+    /* Ink text color paired with light pastel background */
+    color: #0B0B0C;
+    /* Capsule horizontal padding */
+    padding: 0 12px;
+    /* Border-radius matching shape scale */
+    border-radius: 12px;
+    /* Spacing between adjacent right side modules */
+    margin: 0 4px;
+    /* Bold text weight for badge data */
+    font-weight: bold;
+}
+
+/* Volume muted state style override */
+#pulseaudio.muted {
+    /* Semi-transparent dark background for muted status */
+    background-color: rgba(11, 11, 12, 0.6);
+    /* Muted gray text color */
+    color: rgba(240, 245, 245, 0.4);
+    /* Distinct thin border for visibility */
+    border: 1px solid rgba(240, 245, 245, 0.1);
+}
+
+/* Network connection module styling */
+#network {
+    /* Mint badge background from DESIGN.md */
+    background-color: #D4FFED;
+    /* Ink text color paired with light pastel background */
+    color: #0B0B0C;
+    /* Capsule horizontal padding */
+    padding: 0 12px;
+    /* Border-radius matching shape scale */
+    border-radius: 12px;
+    /* Spacing between adjacent right side modules */
+    margin: 0 4px;
+    /* Bold text weight for badge data */
+    font-weight: bold;
+}
+
+/* Disconnected network status override */
+#network.disconnected {
+    /* Yellow alert color for disconnected network status */
+    background-color: #FFDB13;
+    /* Ink text color for contrast */
+    color: #0B0B0C;
+}
+
+/* Battery status module styling */
+#battery {
+    /* Peach badge background from DESIGN.md */
+    background-color: #FFEACC;
+    /* Ink text color paired with light pastel background */
+    color: #0B0B0C;
+    /* Capsule horizontal padding */
+    padding: 0 12px;
+    /* Border-radius matching shape scale */
+    border-radius: 12px;
+    /* Spacing between adjacent right side modules */
+    margin: 0 4px;
+    /* Bold text weight for badge data */
+    font-weight: bold;
+}
+
+/* Battery warning level status override */
+#battery.warning {
+    /* Alert Yellow color from DESIGN.md */
+    background-color: #FFDB13;
+    /* Ink text color for contrast */
+    color: #0B0B0C;
+}
+
+/* Battery critical status override */
+#battery.critical:not(.charging) {
+    /* Alert Yellow color from DESIGN.md */
+    background-color: #FFDB13;
+    /* Ink text color for contrast */
+    color: #0B0B0C;
+}
+
+/* Battery charging status override */
+#battery.charging {
+    /* Mint background for charging state */
+    background-color: #D4FFED;
+    /* Ink text color paired with mint background */
+    color: #0B0B0C;
+}
+
+/* System status tray styling */
+#tray {
+    /* Muted ink transparent background */
+    background-color: rgba(240, 245, 245, 0.1);
+    /* Capsule padding */
+    padding: 0 12px;
+    /* Border-radius matching shape scale */
+    border-radius: 12px;
+    /* Separation from rightmost element */
+    margin-left: 4px;
+}
