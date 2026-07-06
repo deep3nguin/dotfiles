@@ -88,10 +88,10 @@ git clone https://github.com/qn37x/dotfiles.git && cd dotfiles && ./install.sh
 - `SUPER` + `` ` `` (Backtick) : Toggle between current and previous active workspace.
 
 ### Window Operations
-- `SUPER` + `q` : Kill active window.
+- `SUPER` + `q` / `c` : Close/kill active window.
 - `SUPER` + `f` : Toggle fullscreen state.
 - `SUPER` + `v` : Toggle floating layout.
-- `SUPER` + `Space` : Toggle tiling/split layout.
+- `SUPER` + `s` : Toggle window split direction (dwindle layout).
 
 ### Application Launches
 - `SUPER` + `Return` : Open Terminal (`kitty`).
@@ -99,8 +99,8 @@ git clone https://github.com/qn37x/dotfiles.git && cd dotfiles && ./install.sh
 - `SUPER` + `e` : Open Console File Manager (`yazi` in `kitty`).
 
 ### Utilities & Session
-- `Print` : Full screen capture (Grim/Slurp).
-- `SUPER` + `Print` : Select screen region to capture.
+- `Print` : Full screen capture (Grim/Slurp to file).
+- `SUPER` + `Print` / `SUPER` + `Shift` + `s` : Capture regional screenshot to clipboard.
 - `SUPER` + `Escape` : Lock desktop using `hyprlock`.
 - `SUPER` + `Shift` + `q` : Log out / exit Hyprland.
 
