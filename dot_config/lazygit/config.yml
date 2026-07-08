@@ -1,0 +1,25 @@
+# LazyGit custom configuration matching DESIGN.md styling
+gui:
+  theme:
+    activeBorderColor:
+      - '#00FF8A' # Growth Green
+      - bold
+    inactiveBorderColor:
+      - '#0C1614' # Surface Dark
+    searchingActiveBorderColor:
+      - '#00BFD6' # Action Cyan
+      - bold
+    optionsTextColor:
+      - '#00BFD6' # Action Cyan
+    selectedLineBgColor:
+      - '#121F1C' # Surface Medium
+    cherryPickedCommitBgColor:
+      - '#121F1C' # Surface Medium
+    cherryPickedCommitFgColor:
+      - '#00FF8A' # Growth Green
+    unstagedChangesColor:
+      - '#ffb4ab' # Error
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never

@@ -1,9 +1,7 @@
 /* Base reset and global font definition */
 * {
-    /* Define JetBrains Mono as the primary typeface */
-    font-family: "JetBrains Mono", sans-serif;
-    /* Adjust base size for high legibility */
-    font-size: 13px;
+    /* Primary typeface Google Sans Flex with fallbacks */
+    font-family: "Google Sans Flex", "Noto Sans", sans-serif;
     /* Reset margins for consistent layout spacing */
     margin: 0;
     /* Reset paddings for consistent layout spacing */
@@ -12,190 +10,234 @@
 
 /* Base style for the Waybar container */
 #waybar {
-    /* Ink color #0B0B0C with 85% transparency as background */
-    background-color: rgba(11, 11, 12, 0.85);
-    /* Subtle light border around the bar for glass effect */
-    border: 1px solid rgba(240, 245, 245, 0.1);
-    /* Apply radius_sm (12px) border radius for styling */
+    /* Glassmorphic surface-medium background with 86% opacity */
+    background-color: rgba(18, 31, 28, 0.86);
+    /* Backdrop blur for glass effect matching design system */
+    backdrop-filter: blur(12px);
+    /* Subtle 1px white border at 10% opacity for glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Fallback radius matching squircle-md token (12px) */
     border-radius: 12px;
-    /* Default paper color #F0F5F5 for text */
-    color: #F0F5F5;
+    /* Default text color matching on-surface token */
+    color: #e2e2e2;
 }
 
 /* Individual left, center, right modules groups container */
 .modules-left,
 .modules-center,
 .modules-right {
-    /* Padding to vertically center the inner modules */
+    /* Vertical padding matching spacing token base (4px) */
     padding: 4px;
 }
 
 /* Style for active window title display module */
 #window {
-    /* Add padding to prevent text sticking to workspaces */
-    padding: 0 12px;
-    /* Default text color matching paper design token */
-    color: #F0F5F5;
-    /* Medium weight for titles */
-    font-weight: 500;
+    /* Primary typeface Google Sans Flex with sans-serif fallback */
+    font-family: "Google Sans Flex", sans-serif;
+    /* Font size matching body-md (16px) */
+    font-size: 16px;
+    /* Font weight matching body-md (400) */
+    font-weight: 400;
+    /* Default text color matching on-surface token */
+    color: #e2e2e2;
+    /* Horizontal padding matching spacing token sm (16px) */
+    padding: 0 16px;
 }
 
 /* Styling for workspace module container */
 #workspaces {
-    /* Space between workspace switcher and window title */
-    margin-right: 8px;
+    /* Right margin matching spacing token md (24px) */
+    margin-right: 24px;
 }
 
 /* Style for individual workspace buttons */
 #workspaces button {
-    /* Spacing inside workspace indicators */
-    padding: 0 10px;
-    /* Muted text color for inactive workspace elements */
-    color: rgba(240, 245, 245, 0.4);
-    /* Set rounded corners matching radius_sm */
-    border-radius: 12px;
-    /* Smooth hover and focus animations */
+    /* Use Google Sans Code with monospace fallback for labels */
+    font-family: "Google Sans Code", monospace;
+    /* Font size matching label-sm (12px) */
+    font-size: 12px;
+    /* Font weight matching label-sm (500) */
+    font-weight: 500;
+    /* Letter spacing matching label-sm (0.05em) */
+    letter-spacing: 0.05em;
+    /* Horizontal padding matching spacing token xs (8px) */
+    padding: 0 8px;
+    /* Muted text color matching on-surface-variant token */
+    color: #b9cbb9;
+    /* Background color matching surface-medium token */
+    background-color: #121F1C;
+    /* Subtle 1px border matching cards definition */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Fallback radius matching squircle token (8px) */
+    border-radius: 8px;
+    /* Smooth hover and focus transition */
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Workspace button hover status */
 #workspaces button:hover {
-    /* Light tint overlay on hover */
-    background-color: rgba(240, 245, 245, 0.1);
-    /* Brightened text color */
-    color: #F0F5F5;
+    /* Highlight background matching surface-variant token */
+    background-color: #333535;
+    /* Brightened text color matching on-surface token */
+    color: #e2e2e2;
 }
 
 /* Styling for the active workspace module */
 #workspaces button.active {
-    /* Accent color Blue from DESIGN.md */
-    background-color: #0053D6;
-    /* High contrast paper text */
-    color: #F0F5F5;
-    /* Radius sm for active state capsule */
-    border-radius: 12px;
+    /* Accent background matching action-cyan token */
+    background-color: #00BFD6;
+    /* Text color matching on-secondary token */
+    color: #00363e;
+    /* Subtle 1px border using action-cyan with 10% opacity */
+    border: 1px solid rgba(0, 191, 214, 0.1);
+    /* Keep squircle fallback radius (8px) */
+    border-radius: 8px;
 }
 
 /* Styling for urgent workspaces with warnings */
 #workspaces button.urgent {
-    /* High alert Yellow color from DESIGN.md */
-    background-color: #FFDB13;
-    /* Ink text color for contrast readability */
-    color: #0B0B0C;
+    /* High alert background matching error-container token */
+    background-color: #93000a;
+    /* High contrast text color matching error token */
+    color: #ffb4ab;
+    /* Subtle 1px border using error with 10% opacity */
+    border: 1px solid rgba(255, 180, 171, 0.1);
 }
 
 /* Central clock module styling */
 #clock {
-    /* Purple secondary accent fill from DESIGN.md */
-    background-color: #A261FF;
-    /* Paper color text for solid fills */
-    color: #F0F5F5;
-    /* Capsule padding */
+    /* Use Google Sans Code with monospace fallback */
+    font-family: "Google Sans Code", monospace;
+    /* Font size matching label-sm (12px) */
+    font-size: 12px;
+    /* Font weight matching label-sm (500) */
+    font-weight: 500;
+    /* Letter spacing matching label-sm (0.05em) */
+    letter-spacing: 0.05em;
+    /* Background color matching surface-medium token */
+    background-color: #121F1C;
+    /* Text color matching on-surface token */
+    color: #e2e2e2;
+    /* Subtle 1px border matching cards definition */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Horizontal padding matching spacing token sm (16px) */
     padding: 0 16px;
-    /* Border-radius matching shape scale */
-    border-radius: 12px;
-    /* Bolder weight for clock readability */
-    font-weight: bold;
+    /* Fallback radius matching squircle token (8px) */
+    border-radius: 8px;
 }
 
 /* PulseAudio volume indicator module */
 #pulseaudio {
-    /* Mint badge background from DESIGN.md */
-    background-color: #D4FFED;
-    /* Ink text color paired with light pastel background */
-    color: #0B0B0C;
-    /* Capsule horizontal padding */
-    padding: 0 12px;
-    /* Border-radius matching shape scale */
-    border-radius: 12px;
-    /* Spacing between adjacent right side modules */
+    /* Use Google Sans Code with monospace fallback */
+    font-family: "Google Sans Code", monospace;
+    /* Font size matching label-sm (12px) */
+    font-size: 12px;
+    /* Font weight matching label-sm (500) */
+    font-weight: 500;
+    /* Letter spacing matching label-sm (0.05em) */
+    letter-spacing: 0.05em;
+    /* Background color matching surface-medium token */
+    background-color: #121F1C;
+    /* Highlight color matching growth-green token */
+    color: #00FF8A;
+    /* Subtle 1px border matching cards definition */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Horizontal padding matching spacing token xs (8px) */
+    padding: 0 8px;
+    /* Margins matching spacing token base (4px) */
     margin: 0 4px;
-    /* Bold text weight for badge data */
-    font-weight: bold;
+    /* Fallback radius matching squircle token (8px) */
+    border-radius: 8px;
 }
 
 /* Volume muted state style override */
 #pulseaudio.muted {
-    /* Semi-transparent dark background for muted status */
-    background-color: rgba(11, 11, 12, 0.6);
-    /* Muted gray text color */
-    color: rgba(240, 245, 245, 0.4);
-    /* Distinct thin border for visibility */
-    border: 1px solid rgba(240, 245, 245, 0.1);
+    /* Muted text color matching error token */
+    color: #ffb4ab;
 }
 
 /* Network connection module styling */
 #network {
-    /* Mint badge background from DESIGN.md */
-    background-color: #D4FFED;
-    /* Ink text color paired with light pastel background */
-    color: #0B0B0C;
-    /* Capsule horizontal padding */
-    padding: 0 12px;
-    /* Border-radius matching shape scale */
-    border-radius: 12px;
-    /* Spacing between adjacent right side modules */
+    /* Use Google Sans Code with monospace fallback */
+    font-family: "Google Sans Code", monospace;
+    /* Font size matching label-sm (12px) */
+    font-size: 12px;
+    /* Font weight matching label-sm (500) */
+    font-weight: 500;
+    /* Letter spacing matching label-sm (0.05em) */
+    letter-spacing: 0.05em;
+    /* Background color matching surface-medium token */
+    background-color: #121F1C;
+    /* Highlight color matching action-cyan token */
+    color: #00BFD6;
+    /* Subtle 1px border matching cards definition */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Horizontal padding matching spacing token xs (8px) */
+    padding: 0 8px;
+    /* Margins matching spacing token base (4px) */
     margin: 0 4px;
-    /* Bold text weight for badge data */
-    font-weight: bold;
+    /* Fallback radius matching squircle token (8px) */
+    border-radius: 8px;
 }
 
 /* Disconnected network status override */
 #network.disconnected {
-    /* Yellow alert color for disconnected network status */
-    background-color: #FFDB13;
-    /* Ink text color for contrast */
-    color: #0B0B0C;
+    /* Muted/alert text color matching error token */
+    color: #ffb4ab;
 }
 
 /* Battery status module styling */
 #battery {
-    /* Peach badge background from DESIGN.md */
-    background-color: #FFEACC;
-    /* Ink text color paired with light pastel background */
-    color: #0B0B0C;
-    /* Capsule horizontal padding */
-    padding: 0 12px;
-    /* Border-radius matching shape scale */
-    border-radius: 12px;
-    /* Spacing between adjacent right side modules */
+    /* Use Google Sans Code with monospace fallback */
+    font-family: "Google Sans Code", monospace;
+    /* Font size matching label-sm (12px) */
+    font-size: 12px;
+    /* Font weight matching label-sm (500) */
+    font-weight: 500;
+    /* Letter spacing matching label-sm (0.05em) */
+    letter-spacing: 0.05em;
+    /* Background color matching surface-medium token */
+    background-color: #121F1C;
+    /* Default text color matching on-surface token */
+    color: #e2e2e2;
+    /* Subtle 1px border matching cards definition */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Horizontal padding matching spacing token xs (8px) */
+    padding: 0 8px;
+    /* Margins matching spacing token base (4px) */
     margin: 0 4px;
-    /* Bold text weight for badge data */
-    font-weight: bold;
+    /* Fallback radius matching squircle token (8px) */
+    border-radius: 8px;
 }
 
 /* Battery warning level status override */
 #battery.warning {
-    /* Alert Yellow color from DESIGN.md */
-    background-color: #FFDB13;
-    /* Ink text color for contrast */
-    color: #0B0B0C;
+    /* Alert text color matching error token */
+    color: #ffb4ab;
 }
 
 /* Battery critical status override */
 #battery.critical:not(.charging) {
-    /* Alert Yellow color from DESIGN.md */
-    background-color: #FFDB13;
-    /* Ink text color for contrast */
-    color: #0B0B0C;
+    /* Alert text color matching error token */
+    color: #ffb4ab;
 }
 
 /* Battery charging status override */
 #battery.charging {
-    /* Mint background for charging state */
-    background-color: #D4FFED;
-    /* Ink text color paired with mint background */
-    color: #0B0B0C;
+    /* Highlight color matching growth-green token */
+    color: #00FF8A;
 }
 
 /* System status tray styling */
 #tray {
-    /* Muted ink transparent background */
-    background-color: rgba(240, 245, 245, 0.1);
-    /* Capsule padding */
-    padding: 0 12px;
-    /* Border-radius matching shape scale */
-    border-radius: 12px;
-    /* Separation from rightmost element */
+    /* Background color matching surface-medium token */
+    background-color: #121F1C;
+    /* Subtle 1px border matching cards definition */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Horizontal padding matching spacing token xs (8px) */
+    padding: 0 8px;
+    /* Left margin matching spacing token base (4px) */
     margin-left: 4px;
+    /* Fallback radius matching squircle token (8px) */
+    border-radius: 8px;
 }

@@ -5,13 +5,13 @@
     "position": "top",
     // Height of the waybar in pixels
     "height": 38,
-    // Margin top to create a floating appearance
+    // Margin top matching spacing token xs (8px)
     "margin-top": 8,
-    // Margin left to keep the floating alignment balanced
-    "margin-left": 12,
-    // Margin right to keep the floating alignment balanced
-    "margin-right": 12,
-    // Spacing between waybar modules
+    // Margin left matching spacing token sm (16px)
+    "margin-left": 16,
+    // Margin right matching spacing token sm (16px)
+    "margin-right": 16,
+    // Spacing between waybar modules matching spacing token base (4px)
     "spacing": 4,
     // Modules arranged on the left side of the bar
     "modules-left": [
@@ -29,20 +29,6 @@
         "battery",
         "tray"
     ],
-
-    // Workspace indicators for Hyprland
-    "hyprland/workspaces": {
-        // Prevent mouse scroll from switching workspaces
-        "disable-scroll": true,
-        // Make workspaces visible across all connected screens
-        "all-outputs": true,
-        // Format layout for the workspace items
-        "format": "{name}",
-        // Explicitly define persistent workspaces 1 to 5 only
-        "persistent-workspaces": {
-            "*": [1, 2, 3, 4, 5]
-        }
-    },
 
     // Title of the active window
     "hyprland/window": {
@@ -113,5 +99,19 @@
         "spacing": 8,
         // Pixel size of tray icons
         "icon-size": 16
+    },
+
+    // Workspace indicators for Hyprland
+    "hyprland/workspaces": {
+        // Prevent mouse scroll from switching workspaces
+        "disable-scroll": true,
+        // Make workspaces visible across all connected screens
+        "all-outputs": true,
+        // Format layout for the workspace items
+        "format": "{name}",
+        // Explicitly define persistent workspaces 1 to 5 only
+        "persistent-workspaces": {
+            "*": [1, 2, 3, 4, 5]
+        }
     }
 }

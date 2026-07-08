@@ -1,4 +1,5 @@
 # yazi.toml - General configuration settings for Yazi file manager
+# Designed to be used with the Google Sans Code monospace font.
 
 [manager]
 # Width ratio of panels (parent column, current column, preview column)

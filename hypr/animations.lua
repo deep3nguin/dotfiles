@@ -1,4 +1,4 @@
--- Animations configuration for Hyprland
+-- Animations configuration for Hyprland (aligned with DESIGN.md design system)
 
 -- Custom Bezier deceleration curves for premium UI feel
 hl.curve("fluent_curve", { type = "bezier", points = { {0.16, 1}, {0.3, 1} } }) -- Fluent-like deceleration curve

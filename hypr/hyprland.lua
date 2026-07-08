@@ -10,15 +10,15 @@ require("keybinds")     -- Load keyboard shortcuts and binds
 -- General window layout and aesthetics
 hl.config({
     general = {
-        gaps_in = 6,              -- Inner gaps between adjacent windows
-        gaps_out = 12,            -- Outer gaps between windows and monitor edges
+        gaps_in = 8,              -- Inner gaps between adjacent windows (derived from xs spacing: 8px)
+        gaps_out = 16,            -- Outer gaps between windows and screen edges (derived from sm spacing: 16px)
         border_size = 2,          -- Border width of windows
         col = {
             active_border = {
-                colors = { "rgba(0053D6ff)", "rgba(A261FFff)" }, -- Active border with Blue and Purple gradient
+                colors = { "rgba(00FF8Aff)", "rgba(00BFD6ff)" }, -- Active border gradient from growth-green to action-cyan
                 angle = 45
             },
-            inactive_border = "rgba(0B0B0Cff)"                   -- Inactive border color matching Ink
+            inactive_border = "rgba(3B4B3Dff)"                   -- Inactive border color matching outline-variant
         },
         layout = "dwindle",       -- Use the dwindle tiling layout by default
     }
@@ -27,14 +27,14 @@ hl.config({
 -- Window decoration settings
 hl.config({
     decoration = {
-        rounding = 12,            -- Corner rounding radius in pixels (matching radius_sm: 12px)
+        rounding = 16,            -- Corner rounding radius in pixels (derived from squircle-lg: 16px)
         active_opacity = 1.0,     -- Opacity for the active window
-        inactive_opacity = 1.0,   -- Opacity for inactive windows
+        inactive_opacity = 0.92,  -- Opacity for inactive windows (derived from design system legibility guidelines)
 
         -- Configure background blur
         blur = {
             enabled = true,       -- Enable background blur for transparent windows
-            size = 3,             -- Blur size multiplier
+            size = 12,            -- Blur size multiplier (derived from Glassmorphic navigation accents: 12px blur)
             passes = 1,           -- Number of blur passes to perform
         }
     }
@@ -52,7 +52,6 @@ hl.config({
 -- Layout specific configurations
 hl.config({
     dwindle = {
-        pseudotile = true,        -- Enable pseudo-tiling for tiled layouts
         preserve_split = true,    -- Preserve layout split ratio during window adjustments
     }
 })

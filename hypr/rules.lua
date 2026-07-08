@@ -1,4 +1,4 @@
--- Window rules configuration for Hyprland
+-- Window rules configuration for Hyprland (aligned with DESIGN.md layout system)
 
 -- Float rules for standard utility and dialog windows
 hl.window_rule({ match = { class = "^confirm$" }, float = true }) -- Float confirmation dialogs
@@ -10,3 +10,6 @@ hl.window_rule({ match = { class = "^splash$" }, float = true }) -- Float splash
 hl.window_rule({ match = { class = "^confirmreset$" }, float = true }) -- Float reset prompt screens
 hl.window_rule({ match = { class = "^org.gnome.Calculator$" }, float = true }) -- Float GNOME calculator utility
 hl.window_rule({ match = { class = "^file_progress$" }, float = true }) -- Float file progress indicators
+hl.window_rule({ match = { class = "^scratchpad$" }, float = true }) -- Float scratchpad terminal
+hl.window_rule({ match = { class = "^scratchpad$" }, workspace = "special silent" }) -- Automatically place scratchpad in special workspace silently
+

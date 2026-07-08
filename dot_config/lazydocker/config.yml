@@ -1,0 +1,9 @@
+# LazyDocker custom configuration matching DESIGN.md styling
+gui:
+  scrollHeight: 2
+  theme:
+    activeBorderColor:
+      - '#00FF8A' # Growth Green
+      - bold
+    inactiveBorderColor:
+      - '#0C1614' # Surface Dark

@@ -50,6 +50,8 @@ PACKAGES=(
     pavucontrol
     ttf-jetbrains-mono
     otf-font-awesome
+    papirus-icon-theme
+    noto-fonts
 )
 
 # Check if any package is missing
@@ -62,7 +64,9 @@ done
 
 if [ ${#MISSING_PACKAGES[@]} -gt 0 ]; then
     log_info "Installing missing system packages via pacman: ${MISSING_PACKAGES[*]}"
-    if sudo pacman -S --needed --noconfirm "${MISSING_PACKAGES[@]}"; then
+    if [ -n "${DOTFILES_INSTALL_DRY_RUN:-}" ]; then
+        log_info "[DRY-RUN] Would install missing system packages: ${MISSING_PACKAGES[*]}"
+    elif sudo pacman -S --needed --noconfirm "${MISSING_PACKAGES[@]}"; then
         log_success "All missing packages installed successfully."
     else
         log_error "Failed to install some packages. Please install them manually."
@@ -99,12 +103,18 @@ safe_symlink() {
         # Backup existing file/directory/symlink
         local backup_path="${target_dir}.bak_${TIMESTAMP}"
         log_warn "Existing path found at $target_dir. Creating backup at $backup_path"
-        mv "$target_dir" "$backup_path"
+        if [ -z "${DOTFILES_INSTALL_DRY_RUN:-}" ]; then
+            mv "$target_dir" "$backup_path"
+        fi
     fi
 
     # Create the symlink
-    ln -sf "$abs_source" "$target_dir"
-    log_success "Symlinked $source_dir -> $target_dir"
+    if [ -n "${DOTFILES_INSTALL_DRY_RUN:-}" ]; then
+        log_info "[DRY-RUN] Would create symlink: $source_dir -> $target_dir"
+    else
+        ln -sf "$abs_source" "$target_dir"
+        log_success "Symlinked $source_dir -> $target_dir"
+    fi
 }
 
 # --- Perform Symlinking ---
@@ -118,8 +128,12 @@ safe_symlink "yazi" "$XDG_CONFIG_HOME/yazi"
 # --- Executable Permissions ---
 log_info "Setting executable permissions on scripts..."
 if [ -f "$DOTFILES_DIR/scripts/wallpaper.sh" ]; then
-    chmod +x "$DOTFILES_DIR/scripts/wallpaper.sh"
-    log_success "scripts/wallpaper.sh is now executable."
+    if [ -n "${DOTFILES_INSTALL_DRY_RUN:-}" ]; then
+        log_info "[DRY-RUN] Would set executable permission on scripts/wallpaper.sh"
+    else
+        chmod +x "$DOTFILES_DIR/scripts/wallpaper.sh"
+        log_success "scripts/wallpaper.sh is now executable."
+    fi
 fi
 
 # --- Final Check ---

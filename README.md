@@ -1,14 +1,14 @@
-# DeepMind-Inspired Wayland/Hyprland Dotfiles
+# QN37x Wayland/Hyprland Dotfiles
 
-A premium, cohesive, and production-ready Hyprland-based desktop configuration environment. Designed strictly around the **DeepMind-inspired design system** with a flat, high-key, dark-neutral aesthetic featuring vibrant blue/purple accents and sleek rounded shapes.
+A premium, cohesive, and production-ready Hyprland-based desktop configuration environment. Designed strictly around the **QN37x design system** with a Corporate Modern aesthetic and Glassmorphic accents featuring vibrant growth green and action cyan accents.
 
-![DeepMind Style System Preview](assets/wallpaper.jpg)
+![QN37x Style System Preview](assets/wallpaper.jpg)
 
 ## Features
 
 - **Compositor (Hyprland):** Custom 5-workspace limitation (no overflow), smooth bezier transitions, layout rules, and Vim-style focus controls.
 - **Status Bar (Waybar):** Clean, descriptive bar displaying active workspaces (1-5), window titles, system tray, audio volume, network, and battery status.
-- **Launcher (Fuzzel):** Fast, minimal application launcher themed strictly using the primary blue accent and rounded corners.
+- **Launcher (Fuzzel):** Fast, minimal application launcher themed strictly using the primary accent and rounded corners.
 - **File Manager (Yazi):** Cohesive console file explorer with image preview support and vim-like keybindings.
 - **Wallpaper (Hyprpaper):** High-definition digital art background, reloadable dynamically using a helper shell script.
 - **Screenshots (grim + slurp):** Multi-region or full-screen capture keybindings integrated seamlessly.
@@ -20,7 +20,7 @@ A premium, cohesive, and production-ready Hyprland-based desktop configuration e
 ```text
 dotfiles/
 ├── assets/
-│   └── wallpaper.jpg       # Custom DeepMind-inspired 4K wallpaper
+│   └── wallpaper.jpg       # Custom QN37x 4K wallpaper
 ├── fuzzel/
 │   └── fuzzel.ini          # Application launcher configuration
 ├── hypr/
@@ -35,7 +35,7 @@ dotfiles/
 │   └── wallpaper.sh        # Hot-reload wallpaper management script
 ├── waybar/
 │   ├── config.jsonc        # Status bar module layout
-│   └── style.css           # Waybar styling (DeepMind-colors & typography)
+│   └── style.css           # Waybar styling (QN37x colors & typography)
 ├── yazi/
 │   ├── yazi.toml           # Console file manager layout/previews
 │   ├── keymap.toml         # Vim-style navigation binds
@@ -118,9 +118,9 @@ To modify the accent colors, modify the Hex values under the `colors` YAML secti
 
 ```yaml
 colors:
-  ink: "#0B0B0C"        # Main dark-theme background
-  blue: "#0053D6"       # Primary focus & accent color
-  purple: "#A261FF"     # Secondary accent
+  surface-dark: "#0C1614"  # Main dark-theme background
+  growth-green: "#00FF8A"  # Primary focus & accent color
+  action-cyan: "#00BFD6"   # Secondary accent
 ```
 
 If you alter these colors, rebuild/restart the systems (e.g. `hyprctl reload` or restarting Waybar) to propagate changes.

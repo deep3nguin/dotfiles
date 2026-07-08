@@ -1,0 +1,21 @@
+# Mako notification daemon configuration (QN37x Theme)
+
+font=JetBrains Mono 10
+
+# Aesthetics matching DESIGN.md
+background-color=#0C1614
+text-color=#e2e2e2
+border-color=#00FF8A
+border-size=2
+border-radius=8
+
+margin=10
+padding=10
+width=350
+height=150
+
+default-timeout=5000
+
+[urgency=high]
+border-color=#ffb4ab
+default-timeout=0

@@ -1,4 +1,5 @@
--- Keybindings configuration for Hyprland
+-- Keybindings configuration for Hyprland (aligned with DESIGN.md layout system)
+-- Enforces design constraints: workspaces are strictly capped at 5.
 
 local mainMod = "SUPER" -- Set the main modifier key to SUPER
 
@@ -49,7 +50,7 @@ hl.define_submap("resize", function() -- Start definition of the resize submap
     hl.bind("k", hl.dsp.window.resize({ x = 0, y = -10, relative = true }), { repeating = true }) -- Shrink the active window vertically
     hl.bind("j", hl.dsp.window.resize({ x = 0, y = 10, relative = true }), { repeating = true }) -- Expand the active window vertically
     hl.bind("escape", hl.dsp.submap("reset")) -- Exit resize submap and restore default mode
-    hl.bind("enter", hl.dsp.submap("reset")) -- Exit resize submap and restore default mode
+    hl.bind("Return", hl.dsp.submap("reset")) -- Exit resize submap and restore default mode
 end)
 
 -- Screenshots (grim + slurp)
@@ -61,6 +62,18 @@ hl.bind(mainMod .. " + SHIFT + s", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-
 hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("hyprlock")) -- Lock screen using hyprlock utility
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exit()) -- Exit Hyprland and terminate user session
 
+-- Special Workspace and Scratchpad
+hl.bind(mainMod .. " + minus", hl.dsp.exec_cmd("hyprctl dispatch togglespecialworkspace")) -- Toggle special workspace (scratchpad)
+hl.bind(mainMod .. " + SHIFT + minus", hl.dsp.exec_cmd("hyprctl dispatch movetoworkspace special")) -- Move active window to special workspace
+hl.bind(mainMod .. " + u", hl.dsp.exec_cmd("kitty --class scratchpad")) -- Launch scratchpad terminal
+
+-- Sticky Window (Pinning)
+hl.bind(mainMod .. " + p", hl.dsp.exec_cmd("hyprctl dispatch pin")) -- Pin active window (sticky across workspaces)
+
+-- Clipboard History
+hl.bind(mainMod .. " + SHIFT + v", hl.dsp.exec_cmd("~/.local/bin/cliphist-fuzzel.sh")) -- Open clipboard history via fuzzel
+
 -- Mouse Bindings for Resizing/Moving
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true }) -- Drag with mouse left click to move window
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true }) -- Drag with mouse right click to resize window
+
