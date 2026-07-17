@@ -13,7 +13,7 @@
     /* Background using equivalent decimal values for #171717 with opacity */
     background-color: rgba(23, 23, 23, 0.86);
     /* Enable blur filter for backdrop */
-    backdrop-filter: blur(12px);
+    /* backdrop-filter: blur(12px); */
     /* Hairline border using Mist token #dee2de */
     border: 1px solid #dee2de;
     /* Corner radius using cards token 12px (nav=50px) */
