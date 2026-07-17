@@ -255,6 +255,7 @@ Rectangle {
                             font.pixelSize: 14
                             echoMode: TextInput.Password // Mask password input
                             passwordCharacter: "\u25cf" // Dot character
+                            focus: true // Ensure input receives focus when FocusScope is focused
                             clip: true
 
                             KeyNavigation.backtab: usernameField
