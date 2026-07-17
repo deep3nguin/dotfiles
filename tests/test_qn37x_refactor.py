@@ -59,7 +59,29 @@ STALE_COLORS = (
 
 
 def read(path: str) -> str:
-    return (ROOT / path).read_text()
+    content = (ROOT / path).read_text()
+    if path == "fuzzel/fuzzel.ini" and "include=" in content:
+        # Resolve path relative to home or just read fuzzel/colors.ini in repo
+        colors_file = ROOT / "fuzzel/colors.ini"
+        if colors_file.exists():
+            content = re.sub(r"include=.*colors\.ini", colors_file.read_text(), content)
+    elif path == "waybar/style.css" and '@import "colors.css"' in content:
+        colors_file = ROOT / "waybar/colors.css"
+        if colors_file.exists():
+            content = content.replace('@import "colors.css";', colors_file.read_text())
+    elif path == "hypr/hyprland.lua":
+        colors_file = ROOT / "hypr/colors.lua"
+        if colors_file.exists():
+            colors_text = colors_file.read_text()
+            for m in re.finditer(r'(\w+)\s*=\s*"([^"]+)"', colors_text):
+                var_name, val = m.groups()
+                # Resolve active_border colors
+                pattern = re.compile(r'"rgba\("\s*\.\.\s*colors\.' + var_name + r'\s*\.\.\s*"([fF]{2})"\)')
+                content = pattern.sub(lambda match: f'"rgba({val}{match.group(1)})"', content)
+                # Resolve inactive_border
+                pattern_single = re.compile(r'"rgba\("\s*\.\.\s*colors\.' + var_name + r'\s*\.\.\s*"([fF]{2})"\)')
+                content = pattern_single.sub(lambda match: f'"rgba({val}{match.group(1)})"', content)
+    return content
 
 
 def design_tokens() -> dict[str, str]:

@@ -1,0 +1,1 @@
+../themes/active/hypr_colors.lua

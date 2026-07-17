@@ -1,5 +1,7 @@
 -- Hyprland Main Configuration File (Lua format)
 
+local colors = require("colors")
+
 -- Source external configuration modules using require()
 require("monitors")     -- Load monitor configurations
 require("autostart")    -- Load autostart applications
@@ -15,10 +17,10 @@ hl.config({
         border_size = 2,          -- Border width of windows
         col = {
             active_border = {
-                colors = { "rgba(41A1CFff)", "rgba(0081C0ff)" }, -- Active border gradient from primary to primary-dark
+                colors = { "rgba(" .. colors.active_border_1 .. "ff)", "rgba(" .. colors.active_border_2 .. "ff)" }, -- Active border gradient: "rgba(" .. colors.active_border_1 .. "ff") and "rgba(" .. colors.active_border_2 .. "ff")
                 angle = 45
             },
-            inactive_border = "rgba(DEE2DEff)"                   -- Inactive border color matching border token
+            inactive_border = "rgba(" .. colors.inactive_border .. "ff)"                   -- Inactive border: "rgba(" .. colors.inactive_border .. "ff")
         },
         layout = "dwindle",       -- Use the dwindle tiling layout by default
     }

@@ -1,0 +1,153 @@
+# theme.toml - Color scheme and style customization for Yazi file manager
+# Strictly derived from the design system (DESIGN.md)
+
+[app]
+# Uses foreground (#fefffc) for text and parchment (#171717) for background
+overall = { fg = "#fefffc", bg = "#171717" }
+
+[manager]
+# Highlights current directory in cerulean (#0081c0)
+cwd = { fg = "#0081c0", bold = true }
+
+# Character used to draw separation borders
+border_symbol = "│"
+
+# Layout borders use mist (#2c2c2c)
+border_style = { fg = "#2c2c2c" }
+
+# Copy badge uses primary accent (#41a1cf)
+marker_copied   = { fg = "#41a1cf", bg = "#41a1cf" }
+# Cut badge uses dusk (#ffffff)
+marker_cut      = { fg = "#ffffff", bg = "#ffffff" }
+# Marked badge uses cerulean (#0081c0)
+marker_marked   = { fg = "#0081c0", bg = "#0081c0" }
+# Multi-select badge uses primary accent (#41a1cf)
+marker_selected = { fg = "#41a1cf", bg = "#41a1cf" }
+
+# Copied count badge uses primary accent (#41a1cf) text on parchment (#171717)
+count_copied   = { fg = "#41a1cf", bg = "#171717" }
+# Cut badge uses dusk (#ffffff) text on parchment (#171717)
+count_cut      = { fg = "#ffffff", bg = "#171717" }
+# Selected count badge uses primary accent (#41a1cf) text on parchment (#171717)
+count_selected = { fg = "#41a1cf", bg = "#171717" }
+
+[indicator]
+# Active cursor uses paper text on dusk (#ffffff) background (filled button style)
+current = { fg = "#1f1f29", bg = "#ffffff", bold = true }
+
+# Parent cursor uses foreground (#fefffc) text on linen (#252528) background
+parent  = { fg = "#fefffc", bg = "#252528" }
+
+# Underlines the cursor position in the preview pane
+preview = { underline = true }
+
+[status]
+# Status line sits on paper (#1f1f29) with foreground (#fefffc) text
+overall = { fg = "#fefffc", bg = "#1f1f29" }
+
+# Normal mode indicator uses paper text on dusk (#ffffff) background
+mode_normal = { fg = "#1f1f29", bg = "#ffffff", bold = true }
+
+# Select mode indicator uses foreground (#fefffc) text on mist (#2c2c2c) background
+mode_select = { fg = "#fefffc", bg = "#2c2c2c", bold = true }
+
+# Unset/other modes use paper text on dusk (#ffffff) background
+mode_unset  = { fg = "#1f1f29", bg = "#ffffff", bold = true }
+
+# Progress labels use bold foreground (#fefffc) text
+progress_label  = { fg = "#fefffc", bold = true }
+# Active progress bar uses primary accent (#41a1cf) on paper (#1f1f29) track
+progress_normal = { fg = "#41a1cf", bg = "#1f1f29" }
+# Error progress bar uses dusk (#ffffff) on linen (#252528) track
+progress_error  = { fg = "#ffffff", bg = "#252528" }
+
+# Permission separators use mist (#2c2c2c)
+perm_sep  = { fg = "#2c2c2c" }
+# Permission directory indicator uses cerulean (#0081c0)
+perm_type = { fg = "#0081c0" }
+# Read permissions use ash (#646464)
+perm_read = { fg = "#646464" }
+# Write permissions use dusk (#ffffff)
+perm_write= { fg = "#ffffff" }
+# Execute permissions use primary accent (#41a1cf)
+perm_exec = { fg = "#41a1cf" }
+
+[input]
+# Focused input border glows with primary accent (#41a1cf)
+border   = { fg = "#41a1cf" }
+title    = {}
+value    = {}
+# Text selection in inputs uses linen (#252528)
+selected = { bg = "#252528" }
+
+[pick]
+# Dropdowns use mist border (#2c2c2c)
+border   = { fg = "#2c2c2c" }
+# Active items in dropdown lists use primary accent (#41a1cf)
+active   = { fg = "#41a1cf", bold = true }
+# Inactive dropdown items inherit default styling
+inactive = {}
+
+[completion]
+# Autocomplete popup borders use mist border (#2c2c2c)
+border   = { fg = "#2c2c2c" }
+# Active autocomplete selection uses cerulean (#0081c0) on linen (#252528)
+active   = { fg = "#0081c0", bg = "#252528", bold = true }
+# Inactive autocomplete items inherit default styling
+inactive = {}
+
+[tasks]
+# Task list borders use mist border (#2c2c2c)
+border = { fg = "#2c2c2c" }
+# Task list title uses bold foreground (#fefffc)
+title  = { fg = "#fefffc", bold = true }
+# Hovering a task uses paper text on dusk (#ffffff) background
+hover  = { fg = "#1f1f29", bg = "#ffffff" }
+
+[which]
+# Key chord panel uses parchment (#171717)
+mask = { bg = "#171717" }
+# Key candidates use primary accent (#41a1cf)
+cand = { fg = "#41a1cf" }
+# Remaining keys in layout use ash (#646464)
+rest = { fg = "#646464" }
+# Descriptions use cerulean (#0081c0)
+desc = { fg = "#0081c0" }
+# Separator string between key and description
+separator = " ➔ "
+# Separator style uses mist border (#2c2c2c)
+separator_style = { fg = "#2c2c2c" }
+
+[help]
+# Help keys use primary accent (#41a1cf)
+on   = { fg = "#41a1cf" }
+# Help execution command uses cerulean (#0081c0)
+run  = { fg = "#0081c0" }
+# Help descriptions use foreground (#fefffc)
+desc = { fg = "#fefffc" }
+# Hovering a help item highlights in paper text on dusk (#ffffff) background
+hover = { fg = "#1f1f29", bg = "#ffffff" }
+
+[filetype]
+# Defines syntax highlighting styles based on file extensions or mime-types
+rules = [
+  # Directories use cerulean (#0081c0) and bold formatting
+  { url = "*/", fg = "#0081c0", bold = true },
+  
+  # Media files use primary accent (#41a1cf)
+  { mime = "image/*", fg = "#41a1cf" },
+  { mime = "video/*", fg = "#41a1cf" },
+  { mime = "audio/*", fg = "#41a1cf" },
+  
+  # Archives and compressed files use cerulean (#0081c0)
+  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#0081c0" },
+  
+  # Text files use standard foreground (#fefffc)
+  { mime = "text/*", fg = "#fefffc" },
+  
+  # Documents/PDFs use ash (#646464)
+  { mime = "application/{pdf,epub+zip,postscript,x-shockwave-flash}", fg = "#646464" },
+
+  # Fallback for all other files uses foreground (#fefffc)
+  { mime = "*", fg = "#fefffc" }
+]

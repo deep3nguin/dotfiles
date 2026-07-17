@@ -1,3 +1,5 @@
+@import "colors.css";
+
 /* Base reset and global font definition */
 * {
     /* Font family using af with fallback */
@@ -11,15 +13,15 @@
 /* Base style for the Waybar container */
 #waybar {
     /* Background using equivalent decimal values for #171717 with opacity */
-    background-color: rgba(23, 23, 23, 0.86);
+    background-color: @waybar-bg;
     /* Enable blur filter for backdrop */
     /* backdrop-filter: blur(12px); */
     /* Hairline border using Mist token #dee2de */
-    border: 1px solid #dee2de;
+    border: 1px solid @border;
     /* Corner radius using cards token 12px (nav=50px) */
     border-radius: 12px;
     /* Default text color using #171717 */
-    color: #171717;
+    color: @ink;
 }
 
 /* Individual left, center, right modules groups container */
@@ -37,7 +39,7 @@
     /* Font weight matching body-md 400 */
     font-weight: 400;
     /* Default text color using #171717 */
-    color: #171717;
+    color: @ink;
     /* Horizontal padding using spacing token sm 16px */
     padding: 0 16px;
 }
@@ -61,11 +63,11 @@
     /* Horizontal margin */
     margin: 0 4px;
     /* Muted text color using Ash token #646464 */
-    color: #646464;
+    color: @ash;
     /* Background color using Linen wash #f9faf7 */
-    background-color: #f9faf7;
+    background-color: @primary-tint;
     /* Hairline border using Mist token #dee2de */
-    border: 1px solid #dee2de;
+    border: 1px solid @border;
     /* Fallback radius using buttons token 8px */
     border-radius: 8px;
     /* Smooth hover and focus transition */
@@ -75,11 +77,11 @@
 /* Workspace button hover status */
 #workspaces button:hover {
     /* Highlight background using Paper card #ffffff */
-    background-color: #ffffff;
+    background-color: @bg-alt;
     /* Accent text color using Twilight #282834 */
-    color: #282834;
+    color: @twilight;
     /* Darker border using Twilight #282834 */
-    border-color: #282834;
+    border-color: @twilight;
 }
 
 /* Styling for the active workspace module */
@@ -87,9 +89,9 @@
     /* Outlined primary CTA style: transparent background */
     background-color: transparent;
     /* Highlight color using primary token #41a1cf */
-    color: #41a1cf;
+    color: @primary;
     /* Outlined action border using primary token #41a1cf */
-    border: 1px solid #41a1cf;
+    border: 1px solid @primary;
     /* Keep button border radius 8px */
     border-radius: 8px;
 }
@@ -97,11 +99,11 @@
 /* Styling for urgent workspaces with warnings */
 #workspaces button.urgent {
     /* Warning state using Dusk #1f1f29 as filled background with white text */
-    background-color: #1f1f29;
+    background-color: @danger;
     /* High contrast text color */
-    color: #ffffff;
+    color: @bg-alt;
     /* Border matching Dusk filled background */
-    border: 1px solid #1f1f29;
+    border: 1px solid @danger;
 }
 
 /* Central clock module styling */
@@ -113,11 +115,11 @@
     /* Letter spacing matching h2 0.08em */
     letter-spacing: 0.08em;
     /* Background color using Paper card #ffffff */
-    background-color: #ffffff;
+    background-color: @bg-alt;
     /* Text color using Graphite #2c2c2c */
-    color: #2c2c2c;
+    color: @graphite;
     /* Hairline border using Mist #dee2de */
-    border: 1px solid #dee2de;
+    border: 1px solid @border;
     /* Horizontal padding using spacing token sm 16px */
     padding: 0 16px;
     /* Fallback radius using buttons token 8px */
@@ -133,11 +135,11 @@
     /* Letter spacing matching h2 0.08em */
     letter-spacing: 0.08em;
     /* Background color using Paper card #ffffff */
-    background-color: #ffffff;
+    background-color: @bg-alt;
     /* CPU text color using primary token #41a1cf */
-    color: #41a1cf;
+    color: @primary;
     /* Hairline border using Mist #dee2de */
-    border: 1px solid #dee2de;
+    border: 1px solid @border;
     /* Horizontal padding using sound/network 8px */
     padding: 0 8px;
     /* Margins using spacing token base 4px */
@@ -155,11 +157,11 @@
     /* Letter spacing matching h2 0.08em */
     letter-spacing: 0.08em;
     /* Background color using Paper card #ffffff */
-    background-color: #ffffff;
+    background-color: @bg-alt;
     /* Memory text color using primary-dark token #0081c0 */
-    color: #0081c0;
+    color: @primary-dark;
     /* Hairline border using Mist #dee2de */
-    border: 1px solid #dee2de;
+    border: 1px solid @border;
     /* Horizontal padding using sound/network 8px */
     padding: 0 8px;
     /* Margins using spacing token base 4px */
@@ -177,11 +179,11 @@
     /* Letter spacing matching h2 0.08em */
     letter-spacing: 0.08em;
     /* Background color using Paper card #ffffff */
-    background-color: #ffffff;
+    background-color: @bg-alt;
     /* Sound text color using Charcoal #444141 */
-    color: #444141;
+    color: @charcoal;
     /* Hairline border using Mist #dee2de */
-    border: 1px solid #dee2de;
+    border: 1px solid @border;
     /* Horizontal padding using spacing token xs 8px */
     padding: 0 8px;
     /* Margins using spacing token base 4px */
@@ -193,7 +195,7 @@
 /* Volume muted state style override */
 #pulseaudio.muted {
     /* Muted/danger state using Dusk #1f1f29 as text color */
-    color: #1f1f29;
+    color: @danger;
 }
 
 /* Network connection module styling */
@@ -205,11 +207,11 @@
     /* Letter spacing matching h2 0.08em */
     letter-spacing: 0.08em;
     /* Background color using Paper card #ffffff */
-    background-color: #ffffff;
+    background-color: @bg-alt;
     /* Network text color using primary token #41a1cf */
-    color: #41a1cf;
+    color: @primary;
     /* Hairline border using Mist #dee2de */
-    border: 1px solid #dee2de;
+    border: 1px solid @border;
     /* Horizontal padding using spacing token xs 8px */
     padding: 0 8px;
     /* Margins using spacing token base 4px */
@@ -221,7 +223,7 @@
 /* Disconnected network status override */
 #network.disconnected {
     /* Disconnected/alert state using Dusk #1f1f29 as text color */
-    color: #1f1f29;
+    color: @danger;
 }
 
 /* Battery status module styling */
@@ -233,11 +235,11 @@
     /* Letter spacing matching h2 0.08em */
     letter-spacing: 0.08em;
     /* Background color using Paper card #ffffff */
-    background-color: #ffffff;
+    background-color: @bg-alt;
     /* Battery text color using Charcoal #444141 */
-    color: #444141;
+    color: @charcoal;
     /* Hairline border using Mist #dee2de */
-    border: 1px solid #dee2de;
+    border: 1px solid @border;
     /* Horizontal padding using spacing token xs 8px */
     padding: 0 8px;
     /* Margins using spacing token base 4px */
@@ -249,29 +251,29 @@
 /* Battery warning level status override */
 #battery.warning {
     /* Warning state using Dusk #1f1f29 as text color */
-    color: #1f1f29;
+    color: @danger;
 }
 
 /* Battery critical status override */
 #battery.critical:not(.charging) {
     /* Warning state using Dusk #1f1f29 as text color */
-    color: #1f1f29;
+    color: @danger;
 }
 
 /* Battery charging status override */
 #battery.charging {
     /* Charging highlight color using primary-dark token #0081c0 */
-    color: #0081c0;
+    color: @primary-dark;
     /* Background color using Linen wash #f9faf7 */
-    background-color: #f9faf7;
+    background-color: @primary-tint;
 }
 
 /* System status tray styling */
 #tray {
     /* Background color using Paper card #ffffff */
-    background-color: #ffffff;
+    background-color: @bg-alt;
     /* Hairline border using Mist #dee2de */
-    border: 1px solid #dee2de;
+    border: 1px solid @border;
     /* Horizontal padding using spacing token xs 8px */
     padding: 0 8px;
     /* Left margin using spacing token base 4px */
@@ -283,7 +285,7 @@
 /* Ghost state style to ensure primary-tint is verified */
 .ghost-state-ref {
     /* Background color using Linen wash #f9faf7 */
-    background-color: #f9faf7;
+    background-color: @primary-tint;
     /* Saturated accent color using primary-dark token #0081c0 */
-    color: #0081c0;
+    color: @primary-dark;
 }

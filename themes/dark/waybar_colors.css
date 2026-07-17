@@ -1,0 +1,13 @@
+@define-color bg #171717;
+@define-color ink #fefffc;
+@define-color primary #41a1cf;
+@define-color primary-dark #0081c0;
+@define-color border #2c2c2c;
+@define-color bg-alt #1f1f29;
+@define-color danger #ffffff;
+@define-color primary-tint #252528;
+@define-color twilight #f9faf7;
+@define-color graphite #dee2de;
+@define-color waybar-bg rgba(254, 255, 252, 0.86);
+@define-color ash #b4b8b4;
+@define-color charcoal #dee2de;
