@@ -1,5 +1,6 @@
 ---
 name: QN37x-Editorial
+theme: light
 colors:
   bg: "#fefffc"
   ink: "#171717"
@@ -9,6 +10,30 @@ colors:
   bg-alt: "#ffffff"
   danger: "#1f1f29"
   primary-tint: "#f9faf7"
+  twilight: "#282834"
+  graphite: "#2c2c2c"
+light-colors:
+  bg: "#fefffc"
+  ink: "#171717"
+  primary: "#41a1cf"
+  primary-dark: "#0081c0"
+  border: "#dee2de"
+  bg-alt: "#ffffff"
+  danger: "#1f1f29"
+  primary-tint: "#f9faf7"
+  twilight: "#282834"
+  graphite: "#2c2c2c"
+dark-colors:
+  bg: "#171717"
+  ink: "#fefffc"
+  primary: "#41a1cf"
+  primary-dark: "#0081c0"
+  border: "#2c2c2c"
+  bg-alt: "#1f1f29"
+  danger: "#ffffff"
+  primary-tint: "#252528"
+  twilight: "#f9faf7"
+  graphite: "#dee2de"
 typography:
   display: "ppmondwest"
   body: "af"

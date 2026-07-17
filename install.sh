@@ -135,10 +135,11 @@ safe_symlink "dot_config/systemd" "$XDG_CONFIG_HOME/systemd"
 
 safe_symlink "scripts/cliphist-fuzzel.sh" "$HOME/.local/bin/cliphist-fuzzel.sh"
 safe_symlink "scripts/manage-llama.sh" "$HOME/.local/bin/manage-llama.sh"
+safe_symlink "scripts/toggle_theme.sh" "$HOME/.local/bin/toggle_theme.sh"
 
 # --- Executable Permissions ---
 log_info "Setting executable permissions on scripts..."
-for script in "scripts/wallpaper.sh" "scripts/cliphist-fuzzel.sh" "scripts/manage-llama.sh"; do
+for script in "scripts/wallpaper.sh" "scripts/cliphist-fuzzel.sh" "scripts/manage-llama.sh" "scripts/toggle_theme.sh" "scripts/toggle_theme.py"; do
     if [ -f "$DOTFILES_DIR/$script" ]; then
         if [ -n "${DOTFILES_INSTALL_DRY_RUN:-}" ]; then
             log_info "[DRY-RUN] Would set executable permission on $script"

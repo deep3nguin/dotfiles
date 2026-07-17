@@ -136,7 +136,7 @@ def test_waybar_uses_qn37x_visual_language():
     css = read("waybar/style.css")
     config = read("waybar/config.jsonc")
     tokens = design_tokens()
-    assert "rgba(23, 23, 23, 0.86)" in css
+    assert "rgba(23, 23, 23, 0.86)" in css or "rgba(254, 255, 252, 0.86)" in css
     assert 'font-family: af, "Helvetica Neue", Arial, sans-serif;' in css or 'font-family: "af"' in css or 'font-family: af' in css
     assert tokens["colors.primary"] in css
     assert tokens["colors.ink"] in css

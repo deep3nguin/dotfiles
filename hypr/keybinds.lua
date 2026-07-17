@@ -63,6 +63,7 @@ hl.bind(mainMod .. " + SHIFT + s", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-
 -- System Controls
 hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("hyprlock")) -- Lock screen using hyprlock utility
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exit()) -- Exit Hyprland and terminate user session
+hl.bind(mainMod .. " + t", hl.dsp.exec_cmd("~/.local/bin/toggle_theme.sh")) -- Toggle between light and dark themes
 
 -- Special Workspace and Scratchpad
 hl.bind(mainMod .. " + minus", hl.dsp.exec_cmd("hyprctl dispatch togglespecialworkspace")) -- Toggle special workspace (scratchpad)
