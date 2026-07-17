@@ -98,7 +98,7 @@ git clone https://github.com/qn37x/dotfiles.git && cd dotfiles && ./install.sh
 - `SUPER` + `d` : Open Application Launcher (`fuzzel`).
 - `SUPER` + `e` : Open Console File Manager (`yazi` in `kitty`).
 - `SUPER` + `w` : Open Web Browser (`google-chrome-stable`).
-- `SUPER` + `a` : Open Antigravity CLI (`antigravity-cli` in `kitty`).
+- `SUPER` + `a` : Open Antigravity CLI (`agy` in `kitty`).
 
 ### Utilities & Session
 - `Print` : Full screen capture (Grim/Slurp to file).

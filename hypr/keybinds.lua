@@ -8,7 +8,7 @@ hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("kitty")) -- Open kitty terminal
 hl.bind(mainMod .. " + d", hl.dsp.exec_cmd("fuzzel")) -- Launch Fuzzel application launcher
 hl.bind(mainMod .. " + e", hl.dsp.exec_cmd("kitty -e yazi")) -- Launch Yazi file manager inside kitty
 hl.bind(mainMod .. " + w", hl.dsp.exec_cmd("google-chrome-stable")) -- Launch Google Chrome web browser
-hl.bind(mainMod .. " + a", hl.dsp.exec_cmd("kitty -e antigravity-cli")) -- Launch Antigravity CLI inside kitty
+hl.bind(mainMod .. " + a", hl.dsp.exec_cmd("kitty -e agy")) -- Launch agy CLI inside kitty
 
 -- Window Management Binds
 hl.bind(mainMod .. " + q", hl.dsp.window.close()) -- Close/kill the active window
