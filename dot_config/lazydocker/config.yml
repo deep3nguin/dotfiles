@@ -6,4 +6,4 @@ gui:
       - '#00FF8A' # Growth Green
       - bold
     inactiveBorderColor:
-      - '#0C1614' # Surface Dark
+      - '#111111' # Surface Dark

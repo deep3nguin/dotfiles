@@ -13,3 +13,9 @@ hl.window_rule({ match = { class = "^file_progress$" }, float = true }) -- Float
 hl.window_rule({ match = { class = "^scratchpad$" }, float = true }) -- Float scratchpad terminal
 hl.window_rule({ match = { class = "^scratchpad$" }, workspace = "special silent" }) -- Automatically place scratchpad in special workspace silently
 
+-- Blur effect for Waybar panel to achieve glassmorphism
+hl.layer_rule({
+    match = { namespace = "waybar" },
+    blur = true,
+})
+

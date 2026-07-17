@@ -1,6 +1,6 @@
 # QN37x Wayland/Hyprland Dotfiles
 
-A premium, cohesive, and production-ready Hyprland-based desktop configuration environment. Designed strictly around the **QN37x design system** with a Corporate Modern aesthetic and Glassmorphic accents featuring vibrant growth green and action cyan accents.
+A premium, cohesive, and production-ready Hyprland-based desktop configuration environment. Designed strictly around the **QN37x design system** with an Editorial Light aesthetic and custom serif and sans accents.
 
 ![QN37x Style System Preview](assets/wallpaper.jpg)
 
@@ -97,6 +97,8 @@ git clone https://github.com/qn37x/dotfiles.git && cd dotfiles && ./install.sh
 - `SUPER` + `Return` : Open Terminal (`kitty`).
 - `SUPER` + `d` : Open Application Launcher (`fuzzel`).
 - `SUPER` + `e` : Open Console File Manager (`yazi` in `kitty`).
+- `SUPER` + `w` : Open Web Browser (`google-chrome-stable`).
+- `SUPER` + `a` : Open Antigravity CLI (`antigravity-cli` in `kitty`).
 
 ### Utilities & Session
 - `Print` : Full screen capture (Grim/Slurp to file).
@@ -111,6 +113,14 @@ git clone https://github.com/qn37x/dotfiles.git && cd dotfiles && ./install.sh
 
 ---
 
+## Neovim Configuration
+
+Neovim is customized to use the QN37x theme. It supports dynamic mode toggling:
+* `<leader>` + `u` + `t` : Alternates between Light Mode (Parchment `#fefffc` bg) and Dark Mode (Dusk `#1f1f29` bg).
+* `<F5>` : Alternate background color mode (quick toggle shortcut).
+
+---
+
 ## Customizing Theming (DESIGN.md)
 
 All styling rules, spacing values, borders, and colors are defined in `DESIGN.md`. 
@@ -118,9 +128,9 @@ To modify the accent colors, modify the Hex values under the `colors` YAML secti
 
 ```yaml
 colors:
-  surface-dark: "#0C1614"  # Main dark-theme background
-  growth-green: "#00FF8A"  # Primary focus & accent color
-  action-cyan: "#00BFD6"   # Secondary accent
+  bg: "#fefffc"            # Canvas/Background
+  primary: "#41a1cf"       # Primary Accent
+  primary-dark: "#0081c0"  # Secondary Accent
 ```
 
 If you alter these colors, rebuild/restart the systems (e.g. `hyprctl reload` or restarting Waybar) to propagate changes.

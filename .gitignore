@@ -1,0 +1,5 @@
+# .gitignore - Ignore temporary and local agent/test files
+.agents/
+.pytest_cache/
+**/__pycache__/
+hypr/hyprland.conf

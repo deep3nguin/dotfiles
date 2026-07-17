@@ -15,10 +15,10 @@ hl.config({
         border_size = 2,          -- Border width of windows
         col = {
             active_border = {
-                colors = { "rgba(00FF8Aff)", "rgba(00BFD6ff)" }, -- Active border gradient from growth-green to action-cyan
+                colors = { "rgba(41A1CFff)", "rgba(0081C0ff)" }, -- Active border gradient from primary to primary-dark
                 angle = 45
             },
-            inactive_border = "rgba(3B4B3Dff)"                   -- Inactive border color matching outline-variant
+            inactive_border = "rgba(DEE2DEff)"                   -- Inactive border color matching border token
         },
         layout = "dwindle",       -- Use the dwindle tiling layout by default
     }

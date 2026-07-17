@@ -24,11 +24,26 @@
     ],
     // Modules arranged on the right side of the bar
     "modules-right": [
+        "cpu",
+        "memory",
         "pulseaudio",
         "network",
         "battery",
         "tray"
     ],
+
+    // CPU usage monitoring module
+    "cpu": {
+        "format": " {usage}%",
+        "interval": 2
+    },
+
+    // Memory usage monitoring module
+    "memory": {
+        "format": " {percentage}%",
+        "interval": 2,
+        "tooltip-format": "{used:0.1f}G/{total:0.1f}G ({percentage}%)"
+    },
 
     // Title of the active window
     "hyprland/window": {

@@ -1,151 +1,153 @@
 # theme.toml - Color scheme and style customization for Yazi file manager
-# Strictly derived from the QN37x design system (DESIGN.md)
+# Strictly derived from the design system (DESIGN.md)
 
 [app]
-# Uses on-surface (#e2e2e2) for text and Floor Level 0 (#0C1614) for background
-overall = { fg = "#e2e2e2", bg = "#0C1614" }
+# Uses foreground (#171717) for text and parchment (#fefffc) for background
+overall = { fg = "#171717", bg = "#fefffc" }
 
 [manager]
-# Highlights current directory in action-cyan (#00BFD6)
-cwd = { fg = "#00BFD6", bold = true }
+# Highlights current directory in cerulean (#0081c0)
+cwd = { fg = "#0081c0", bold = true }
 
 # Character used to draw separation borders
 border_symbol = "│"
 
-# Layout borders use outline-variant (#3b4b3d) for a subtle ghost-border look
-border_style = { fg = "#3b4b3d" }
+# Layout borders use mist (#dee2de)
+border_style = { fg = "#dee2de" }
 
-# Copy badge uses primary growth-green (#00FF8A)
-marker_copied   = { fg = "#00FF8A", bg = "#00FF8A" }
-# Cut badge uses error red (#ffb4ab) to indicate warning/removal state
-marker_cut      = { fg = "#ffb4ab", bg = "#ffb4ab" }
-# Marked badge uses action-cyan (#00BFD6) for active selection
-marker_marked   = { fg = "#00BFD6", bg = "#00BFD6" }
-# Multi-select badge uses secondary-fixed-dim (#41d8f0)
-marker_selected = { fg = "#41d8f0", bg = "#41d8f0" }
+# Copy badge uses primary accent (#41a1cf)
+marker_copied   = { fg = "#41a1cf", bg = "#41a1cf" }
+# Cut badge uses dusk (#1f1f29)
+marker_cut      = { fg = "#1f1f29", bg = "#1f1f29" }
+# Marked badge uses cerulean (#0081c0)
+marker_marked   = { fg = "#0081c0", bg = "#0081c0" }
+# Multi-select badge uses primary accent (#41a1cf)
+marker_selected = { fg = "#41a1cf", bg = "#41a1cf" }
 
-# Copied count badge uses growth-green (#00FF8A) text on dark floor (#0C1614)
-count_copied   = { fg = "#00FF8A", bg = "#0C1614" }
-# Cut count badge uses error red (#ffb4ab) text on dark floor (#0C1614)
-count_cut      = { fg = "#ffb4ab", bg = "#0C1614" }
-# Selected count badge uses secondary-fixed-dim (#41d8f0) text on dark floor (#0C1614)
-count_selected = { fg = "#41d8f0", bg = "#0C1614" }
+# Copied count badge uses primary accent (#41a1cf) text on parchment (#fefffc)
+count_copied   = { fg = "#41a1cf", bg = "#fefffc" }
+# Cut badge uses dusk (#1f1f29) text on parchment (#fefffc)
+count_cut      = { fg = "#1f1f29", bg = "#fefffc" }
+# Selected count badge uses primary accent (#41a1cf) text on parchment (#fefffc)
+count_selected = { fg = "#41a1cf", bg = "#fefffc" }
 
 [indicator]
-# Active cursor uses growth-green (#00FF8A) background and dark text (#0C1614) for focus
-current = { fg = "#0C1614", bg = "#00FF8A", bold = true }
+# Active cursor uses paper text on dusk (#1f1f29) background (filled button style)
+current = { fg = "#ffffff", bg = "#1f1f29", bold = true }
 
-# Parent cursor uses action-cyan (#00BFD6) background and dark text (#0C1614)
-parent  = { fg = "#0C1614", bg = "#00BFD6" }
+# Parent cursor uses foreground (#171717) text on linen (#f9faf7) background
+parent  = { fg = "#171717", bg = "#f9faf7" }
 
 # Underlines the cursor position in the preview pane
 preview = { underline = true }
 
 [status]
-# Status line sits on Surface Level 1 (#121F1C) with on-surface (#e2e2e2) text
-overall = { fg = "#e2e2e2", bg = "#121F1C" }
+# Status line sits on paper (#ffffff) with foreground (#171717) text
+overall = { fg = "#171717", bg = "#ffffff" }
 
-# Normal mode indicator uses growth-green (#00FF8A) for default command state
-mode_normal = { fg = "#0C1614", bg = "#00FF8A", bold = true }
+# Normal mode indicator uses paper text on dusk (#1f1f29) background
+mode_normal = { fg = "#ffffff", bg = "#1f1f29", bold = true }
 
-# Select mode indicator uses action-cyan (#00BFD6) for interactive selection
-mode_select = { fg = "#0C1614", bg = "#00BFD6", bold = true }
+# Select mode indicator uses foreground (#171717) text on mist (#dee2de) background
+mode_select = { fg = "#171717", bg = "#dee2de", bold = true }
 
-# Unset/other modes use error red (#ffb4ab) as alert state
-mode_unset  = { fg = "#0C1614", bg = "#ffb4ab", bold = true }
+# Unset/other modes use paper text on dusk (#1f1f29) background
+mode_unset  = { fg = "#ffffff", bg = "#1f1f29", bold = true }
 
-# Progress labels use bold on-surface (#e2e2e2) text
-progress_label  = { fg = "#e2e2e2", bold = true }
-# Active progress bar uses growth-green (#00FF8A) on surface-medium (#121F1C) track
-progress_normal = { fg = "#00FF8A", bg = "#121F1C" }
-# Error progress bar uses error red (#ffb4ab) on error-container (#93000a) track
-progress_error  = { fg = "#ffb4ab", bg = "#93000a" }
+# Progress labels use bold foreground (#171717) text
+progress_label  = { fg = "#171717", bold = true }
+# Active progress bar uses primary accent (#41a1cf) on paper (#ffffff) track
+progress_normal = { fg = "#41a1cf", bg = "#ffffff" }
+# Error progress bar uses dusk (#1f1f29) on linen (#f9faf7) track
+progress_error  = { fg = "#1f1f29", bg = "#f9faf7" }
 
-# Permission separators use outline-variant (#3b4b3d)
-perm_sep  = { fg = "#3b4b3d" }
-# Permission directory indicator uses action-cyan (#00BFD6)
-perm_type = { fg = "#00BFD6" }
-# Read permissions use on-surface-variant (#b9cbb9)
-perm_read = { fg = "#b9cbb9" }
-# Write permissions use error red (#ffb4ab)
-perm_write= { fg = "#ffb4ab" }
-# Execute permissions use growth-green (#00FF8A)
-perm_exec = { fg = "#00FF8A" }
+# Permission separators use mist (#dee2de)
+perm_sep  = { fg = "#dee2de" }
+# Permission directory indicator uses cerulean (#0081c0)
+perm_type = { fg = "#0081c0" }
+# Read permissions use ash (#646464)
+perm_read = { fg = "#646464" }
+# Write permissions use dusk (#1f1f29)
+perm_write= { fg = "#1f1f29" }
+# Execute permissions use primary accent (#41a1cf)
+perm_exec = { fg = "#41a1cf" }
 
 [input]
-# Focused input border glows with action-cyan (#00BFD6)
-border   = { fg = "#00BFD6" }
+# Focused input border glows with primary accent (#41a1cf)
+border   = { fg = "#41a1cf" }
 title    = {}
 value    = {}
-# Text selection in inputs uses a dim cyan (#004952)
-selected = { bg = "#004952" }
+# Text selection in inputs uses linen (#f9faf7)
+selected = { bg = "#f9faf7" }
 
 [pick]
-# Dropdowns use outline-variant (#3b4b3d) for standard borders
-border   = { fg = "#3b4b3d" }
-# Active items in dropdown lists use growth-green (#00FF8A)
-active   = { fg = "#00FF8A", bold = true }
+# Dropdowns use mist border (#dee2de)
+border   = { fg = "#dee2de" }
+# Active items in dropdown lists use primary accent (#41a1cf)
+active   = { fg = "#41a1cf", bold = true }
+# Inactive dropdown items inherit default styling
 inactive = {}
 
 [completion]
-# Autocomplete popup borders use outline (#849585) for distinction
-border   = { fg = "#849585" }
-# Active autocomplete selection uses growth-green (#00FF8A) on surface-medium (#121F1C)
-active   = { fg = "#00FF8A", bg = "#121F1C", bold = true }
+# Autocomplete popup borders use mist border (#dee2de)
+border   = { fg = "#dee2de" }
+# Active autocomplete selection uses cerulean (#0081c0) on linen (#f9faf7)
+active   = { fg = "#0081c0", bg = "#f9faf7", bold = true }
+# Inactive autocomplete items inherit default styling
 inactive = {}
 
 [tasks]
-# Task list borders use outline-variant (#3b4b3d)
-border = { fg = "#3b4b3d" }
-# Task list title uses bold on-surface (#e2e2e2)
-title  = { fg = "#e2e2e2", bold = true }
-# Hovering a task uses growth-green (#00FF8A) background
-hover  = { fg = "#0C1614", bg = "#00FF8A" }
+# Task list borders use mist border (#dee2de)
+border = { fg = "#dee2de" }
+# Task list title uses bold foreground (#171717)
+title  = { fg = "#171717", bold = true }
+# Hovering a task uses paper text on dusk (#1f1f29) background
+hover  = { fg = "#ffffff", bg = "#1f1f29" }
 
 [which]
-# Key chord panel uses Floor Level 0 (#0C1614) background
-mask = { bg = "#0C1614" }
-# Key candidates use growth-green (#00FF8A)
-cand = { fg = "#00FF8A" }
-# Remaining keys in layout use on-surface-variant (#b9cbb9)
-rest = { fg = "#b9cbb9" }
-# Descriptions use secondary cyan (#45dbf3)
-desc = { fg = "#45dbf3" }
+# Key chord panel uses parchment (#fefffc)
+mask = { bg = "#fefffc" }
+# Key candidates use primary accent (#41a1cf)
+cand = { fg = "#41a1cf" }
+# Remaining keys in layout use ash (#646464)
+rest = { fg = "#646464" }
+# Descriptions use cerulean (#0081c0)
+desc = { fg = "#0081c0" }
 # Separator string between key and description
 separator = " ➔ "
-# Separator style uses outline (#849585)
-separator_style = { fg = "#849585" }
+# Separator style uses mist border (#dee2de)
+separator_style = { fg = "#dee2de" }
 
 [help]
-# Help keys use growth-green (#00FF8A)
-on   = { fg = "#00FF8A" }
-# Help execution command uses action-cyan (#00BFD6)
-run  = { fg = "#00BFD6" }
-# Help descriptions use on-surface (#e2e2e2)
-desc = { fg = "#e2e2e2" }
-# Hovering a help item highlights in growth-green (#00FF8A)
-hover = { fg = "#0C1614", bg = "#00FF8A" }
+# Help keys use primary accent (#41a1cf)
+on   = { fg = "#41a1cf" }
+# Help execution command uses cerulean (#0081c0)
+run  = { fg = "#0081c0" }
+# Help descriptions use foreground (#171717)
+desc = { fg = "#171717" }
+# Hovering a help item highlights in paper text on dusk (#1f1f29) background
+hover = { fg = "#ffffff", bg = "#1f1f29" }
 
 [filetype]
 # Defines syntax highlighting styles based on file extensions or mime-types
 rules = [
-  # Directories use action-cyan (#00BFD6) and bold formatting
-  { url = "*/", fg = "#00BFD6", bold = true },
+  # Directories use cerulean (#0081c0) and bold formatting
+  { url = "*/", fg = "#0081c0", bold = true },
   
-  # Media files use secondary-fixed-dim (#41d8f0)
-  { mime = "image/*", fg = "#41d8f0" },
-  { mime = "video/*", fg = "#41d8f0" },
-  { mime = "audio/*", fg = "#41d8f0" },
+  # Media files use primary accent (#41a1cf)
+  { mime = "image/*", fg = "#41a1cf" },
+  { mime = "video/*", fg = "#41a1cf" },
+  { mime = "audio/*", fg = "#41a1cf" },
   
-  # Archives and compressed files use primary-fixed-dim green (#00e47a)
-  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#00e47a" },
+  # Archives and compressed files use cerulean (#0081c0)
+  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#0081c0" },
   
-  # Text files use standard on-surface (#e2e2e2)
-  { mime = "text/*", fg = "#e2e2e2" },
+  # Text files use standard foreground (#171717)
+  { mime = "text/*", fg = "#171717" },
   
-  # Documents/PDFs use tertiary-fixed-dim (#bbcac5)
-  { mime = "application/{pdf,epub+zip,postscript,x-shockwave-flash}", fg = "#bbcac5" },
+  # Documents/PDFs use ash (#646464)
+  { mime = "application/{pdf,epub+zip,postscript,x-shockwave-flash}", fg = "#646464" },
 
-  # Fallback for all other files uses on-surface (#e2e2e2)
-  { mime = "*", fg = "#e2e2e2" }
+  # Fallback for all other files uses foreground (#171717)
+  { mime = "*", fg = "#171717" }
 ]

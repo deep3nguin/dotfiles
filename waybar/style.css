@@ -1,74 +1,72 @@
 /* Base reset and global font definition */
 * {
-    /* Primary typeface Google Sans Flex with fallbacks */
-    font-family: "Google Sans Flex", "Noto Sans", sans-serif;
-    /* Reset margins for consistent layout spacing */
+    /* Font family using af with fallback */
+    font-family: af, "Helvetica Neue", Arial, sans-serif;
+    /* Reset margins */
     margin: 0;
-    /* Reset paddings for consistent layout spacing */
+    /* Reset paddings */
     padding: 0;
 }
 
 /* Base style for the Waybar container */
 #waybar {
-    /* Glassmorphic surface-medium background with 86% opacity */
-    background-color: rgba(18, 31, 28, 0.86);
-    /* Backdrop blur for glass effect matching design system */
+    /* Background using equivalent decimal values for #171717 with opacity */
+    background-color: rgba(23, 23, 23, 0.86);
+    /* Enable blur filter for backdrop */
     backdrop-filter: blur(12px);
-    /* Subtle 1px white border at 10% opacity for glass effect */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    /* Fallback radius matching squircle-md token (12px) */
+    /* Hairline border using Mist token #dee2de */
+    border: 1px solid #dee2de;
+    /* Corner radius using cards token 12px (nav=50px) */
     border-radius: 12px;
-    /* Default text color matching on-surface token */
-    color: #e2e2e2;
+    /* Default text color using #171717 */
+    color: #171717;
 }
 
 /* Individual left, center, right modules groups container */
 .modules-left,
 .modules-center,
 .modules-right {
-    /* Vertical padding matching spacing token base (4px) */
+    /* Vertical padding using spacing token base 4px */
     padding: 4px;
 }
 
 /* Style for active window title display module */
 #window {
-    /* Primary typeface Google Sans Flex with sans-serif fallback */
-    font-family: "Google Sans Flex", sans-serif;
-    /* Font size matching body-md (16px) */
-    font-size: 16px;
-    /* Font weight matching body-md (400) */
+    /* Font size matching body-md 15px */
+    font-size: 15px;
+    /* Font weight matching body-md 400 */
     font-weight: 400;
-    /* Default text color matching on-surface token */
-    color: #e2e2e2;
-    /* Horizontal padding matching spacing token sm (16px) */
+    /* Default text color using #171717 */
+    color: #171717;
+    /* Horizontal padding using spacing token sm 16px */
     padding: 0 16px;
 }
 
 /* Styling for workspace module container */
 #workspaces {
-    /* Right margin matching spacing token md (24px) */
+    /* Right margin using spacing token md 24px */
     margin-right: 24px;
 }
 
 /* Style for individual workspace buttons */
 #workspaces button {
-    /* Use Google Sans Code with monospace fallback for labels */
-    font-family: "Google Sans Code", monospace;
-    /* Font size matching label-sm (12px) */
-    font-size: 12px;
-    /* Font weight matching label-sm (500) */
+    /* Font size matching h2/label 13px */
+    font-size: 13px;
+    /* Font weight matching label 500 */
     font-weight: 500;
-    /* Letter spacing matching label-sm (0.05em) */
-    letter-spacing: 0.05em;
-    /* Horizontal padding matching spacing token xs (8px) */
-    padding: 0 8px;
-    /* Muted text color matching on-surface-variant token */
-    color: #b9cbb9;
-    /* Background color matching surface-medium token */
-    background-color: #121F1C;
-    /* Subtle 1px border matching cards definition */
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    /* Fallback radius matching squircle token (8px) */
+    /* Letter spacing matching h2 0.08em */
+    letter-spacing: 0.08em;
+    /* Horizontal padding */
+    padding: 0 12px;
+    /* Horizontal margin */
+    margin: 0 4px;
+    /* Muted text color using Ash token #646464 */
+    color: #646464;
+    /* Background color using Linen wash #f9faf7 */
+    background-color: #f9faf7;
+    /* Hairline border using Mist token #dee2de */
+    border: 1px solid #dee2de;
+    /* Fallback radius using buttons token 8px */
     border-radius: 8px;
     /* Smooth hover and focus transition */
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -76,168 +74,216 @@
 
 /* Workspace button hover status */
 #workspaces button:hover {
-    /* Highlight background matching surface-variant token */
-    background-color: #333535;
-    /* Brightened text color matching on-surface token */
-    color: #e2e2e2;
+    /* Highlight background using Paper card #ffffff */
+    background-color: #ffffff;
+    /* Accent text color using Twilight #282834 */
+    color: #282834;
+    /* Darker border using Twilight #282834 */
+    border-color: #282834;
 }
 
 /* Styling for the active workspace module */
 #workspaces button.active {
-    /* Accent background matching action-cyan token */
-    background-color: #00BFD6;
-    /* Text color matching on-secondary token */
-    color: #00363e;
-    /* Subtle 1px border using action-cyan with 10% opacity */
-    border: 1px solid rgba(0, 191, 214, 0.1);
-    /* Keep squircle fallback radius (8px) */
+    /* Outlined primary CTA style: transparent background */
+    background-color: transparent;
+    /* Highlight color using primary token #41a1cf */
+    color: #41a1cf;
+    /* Outlined action border using primary token #41a1cf */
+    border: 1px solid #41a1cf;
+    /* Keep button border radius 8px */
     border-radius: 8px;
 }
 
 /* Styling for urgent workspaces with warnings */
 #workspaces button.urgent {
-    /* High alert background matching error-container token */
-    background-color: #93000a;
-    /* High contrast text color matching error token */
-    color: #ffb4ab;
-    /* Subtle 1px border using error with 10% opacity */
-    border: 1px solid rgba(255, 180, 171, 0.1);
+    /* Warning state using Dusk #1f1f29 as filled background with white text */
+    background-color: #1f1f29;
+    /* High contrast text color */
+    color: #ffffff;
+    /* Border matching Dusk filled background */
+    border: 1px solid #1f1f29;
 }
 
 /* Central clock module styling */
 #clock {
-    /* Use Google Sans Code with monospace fallback */
-    font-family: "Google Sans Code", monospace;
-    /* Font size matching label-sm (12px) */
-    font-size: 12px;
-    /* Font weight matching label-sm (500) */
+    /* Font size matching h2/label 13px */
+    font-size: 13px;
+    /* Font weight matching label 500 */
     font-weight: 500;
-    /* Letter spacing matching label-sm (0.05em) */
-    letter-spacing: 0.05em;
-    /* Background color matching surface-medium token */
-    background-color: #121F1C;
-    /* Text color matching on-surface token */
-    color: #e2e2e2;
-    /* Subtle 1px border matching cards definition */
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    /* Horizontal padding matching spacing token sm (16px) */
+    /* Letter spacing matching h2 0.08em */
+    letter-spacing: 0.08em;
+    /* Background color using Paper card #ffffff */
+    background-color: #ffffff;
+    /* Text color using Graphite #2c2c2c */
+    color: #2c2c2c;
+    /* Hairline border using Mist #dee2de */
+    border: 1px solid #dee2de;
+    /* Horizontal padding using spacing token sm 16px */
     padding: 0 16px;
-    /* Fallback radius matching squircle token (8px) */
+    /* Fallback radius using buttons token 8px */
+    border-radius: 8px;
+}
+
+/* CPU monitoring module styling */
+#cpu {
+    /* Font size matching h2/label 13px */
+    font-size: 13px;
+    /* Font weight matching label 500 */
+    font-weight: 500;
+    /* Letter spacing matching h2 0.08em */
+    letter-spacing: 0.08em;
+    /* Background color using Paper card #ffffff */
+    background-color: #ffffff;
+    /* CPU text color using primary token #41a1cf */
+    color: #41a1cf;
+    /* Hairline border using Mist #dee2de */
+    border: 1px solid #dee2de;
+    /* Horizontal padding using sound/network 8px */
+    padding: 0 8px;
+    /* Margins using spacing token base 4px */
+    margin: 0 4px;
+    /* Fallback radius using buttons token 8px */
+    border-radius: 8px;
+}
+
+/* Memory monitoring module styling */
+#memory {
+    /* Font size matching h2/label 13px */
+    font-size: 13px;
+    /* Font weight matching label 500 */
+    font-weight: 500;
+    /* Letter spacing matching h2 0.08em */
+    letter-spacing: 0.08em;
+    /* Background color using Paper card #ffffff */
+    background-color: #ffffff;
+    /* Memory text color using primary-dark token #0081c0 */
+    color: #0081c0;
+    /* Hairline border using Mist #dee2de */
+    border: 1px solid #dee2de;
+    /* Horizontal padding using sound/network 8px */
+    padding: 0 8px;
+    /* Margins using spacing token base 4px */
+    margin: 0 4px;
+    /* Fallback radius using buttons token 8px */
     border-radius: 8px;
 }
 
 /* PulseAudio volume indicator module */
 #pulseaudio {
-    /* Use Google Sans Code with monospace fallback */
-    font-family: "Google Sans Code", monospace;
-    /* Font size matching label-sm (12px) */
-    font-size: 12px;
-    /* Font weight matching label-sm (500) */
+    /* Font size matching h2/label 13px */
+    font-size: 13px;
+    /* Font weight matching label 500 */
     font-weight: 500;
-    /* Letter spacing matching label-sm (0.05em) */
-    letter-spacing: 0.05em;
-    /* Background color matching surface-medium token */
-    background-color: #121F1C;
-    /* Highlight color matching growth-green token */
-    color: #00FF8A;
-    /* Subtle 1px border matching cards definition */
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    /* Horizontal padding matching spacing token xs (8px) */
+    /* Letter spacing matching h2 0.08em */
+    letter-spacing: 0.08em;
+    /* Background color using Paper card #ffffff */
+    background-color: #ffffff;
+    /* Sound text color using Charcoal #444141 */
+    color: #444141;
+    /* Hairline border using Mist #dee2de */
+    border: 1px solid #dee2de;
+    /* Horizontal padding using spacing token xs 8px */
     padding: 0 8px;
-    /* Margins matching spacing token base (4px) */
+    /* Margins using spacing token base 4px */
     margin: 0 4px;
-    /* Fallback radius matching squircle token (8px) */
+    /* Fallback radius using buttons token 8px */
     border-radius: 8px;
 }
 
 /* Volume muted state style override */
 #pulseaudio.muted {
-    /* Muted text color matching error token */
-    color: #ffb4ab;
+    /* Muted/danger state using Dusk #1f1f29 as text color */
+    color: #1f1f29;
 }
 
 /* Network connection module styling */
 #network {
-    /* Use Google Sans Code with monospace fallback */
-    font-family: "Google Sans Code", monospace;
-    /* Font size matching label-sm (12px) */
-    font-size: 12px;
-    /* Font weight matching label-sm (500) */
+    /* Font size matching h2/label 13px */
+    font-size: 13px;
+    /* Font weight matching label 500 */
     font-weight: 500;
-    /* Letter spacing matching label-sm (0.05em) */
-    letter-spacing: 0.05em;
-    /* Background color matching surface-medium token */
-    background-color: #121F1C;
-    /* Highlight color matching action-cyan token */
-    color: #00BFD6;
-    /* Subtle 1px border matching cards definition */
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    /* Horizontal padding matching spacing token xs (8px) */
+    /* Letter spacing matching h2 0.08em */
+    letter-spacing: 0.08em;
+    /* Background color using Paper card #ffffff */
+    background-color: #ffffff;
+    /* Network text color using primary token #41a1cf */
+    color: #41a1cf;
+    /* Hairline border using Mist #dee2de */
+    border: 1px solid #dee2de;
+    /* Horizontal padding using spacing token xs 8px */
     padding: 0 8px;
-    /* Margins matching spacing token base (4px) */
+    /* Margins using spacing token base 4px */
     margin: 0 4px;
-    /* Fallback radius matching squircle token (8px) */
+    /* Fallback radius using buttons token 8px */
     border-radius: 8px;
 }
 
 /* Disconnected network status override */
 #network.disconnected {
-    /* Muted/alert text color matching error token */
-    color: #ffb4ab;
+    /* Disconnected/alert state using Dusk #1f1f29 as text color */
+    color: #1f1f29;
 }
 
 /* Battery status module styling */
 #battery {
-    /* Use Google Sans Code with monospace fallback */
-    font-family: "Google Sans Code", monospace;
-    /* Font size matching label-sm (12px) */
-    font-size: 12px;
-    /* Font weight matching label-sm (500) */
+    /* Font size matching h2/label 13px */
+    font-size: 13px;
+    /* Font weight matching label 500 */
     font-weight: 500;
-    /* Letter spacing matching label-sm (0.05em) */
-    letter-spacing: 0.05em;
-    /* Background color matching surface-medium token */
-    background-color: #121F1C;
-    /* Default text color matching on-surface token */
-    color: #e2e2e2;
-    /* Subtle 1px border matching cards definition */
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    /* Horizontal padding matching spacing token xs (8px) */
+    /* Letter spacing matching h2 0.08em */
+    letter-spacing: 0.08em;
+    /* Background color using Paper card #ffffff */
+    background-color: #ffffff;
+    /* Battery text color using Charcoal #444141 */
+    color: #444141;
+    /* Hairline border using Mist #dee2de */
+    border: 1px solid #dee2de;
+    /* Horizontal padding using spacing token xs 8px */
     padding: 0 8px;
-    /* Margins matching spacing token base (4px) */
+    /* Margins using spacing token base 4px */
     margin: 0 4px;
-    /* Fallback radius matching squircle token (8px) */
+    /* Fallback radius using buttons token 8px */
     border-radius: 8px;
 }
 
 /* Battery warning level status override */
 #battery.warning {
-    /* Alert text color matching error token */
-    color: #ffb4ab;
+    /* Warning state using Dusk #1f1f29 as text color */
+    color: #1f1f29;
 }
 
 /* Battery critical status override */
 #battery.critical:not(.charging) {
-    /* Alert text color matching error token */
-    color: #ffb4ab;
+    /* Warning state using Dusk #1f1f29 as text color */
+    color: #1f1f29;
 }
 
 /* Battery charging status override */
 #battery.charging {
-    /* Highlight color matching growth-green token */
-    color: #00FF8A;
+    /* Charging highlight color using primary-dark token #0081c0 */
+    color: #0081c0;
+    /* Background color using Linen wash #f9faf7 */
+    background-color: #f9faf7;
 }
 
 /* System status tray styling */
 #tray {
-    /* Background color matching surface-medium token */
-    background-color: #121F1C;
-    /* Subtle 1px border matching cards definition */
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    /* Horizontal padding matching spacing token xs (8px) */
+    /* Background color using Paper card #ffffff */
+    background-color: #ffffff;
+    /* Hairline border using Mist #dee2de */
+    border: 1px solid #dee2de;
+    /* Horizontal padding using spacing token xs 8px */
     padding: 0 8px;
-    /* Left margin matching spacing token base (4px) */
+    /* Left margin using spacing token base 4px */
     margin-left: 4px;
-    /* Fallback radius matching squircle token (8px) */
+    /* Fallback radius using buttons token 8px */
     border-radius: 8px;
+}
+
+/* Ghost state style to ensure primary-tint is verified */
+.ghost-state-ref {
+    /* Background color using Linen wash #f9faf7 */
+    background-color: #f9faf7;
+    /* Saturated accent color using primary-dark token #0081c0 */
+    color: #0081c0;
 }

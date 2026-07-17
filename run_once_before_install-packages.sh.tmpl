@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+#
+# run_once_before_install-packages.sh.tmpl - Install system packages for Hyprland/TUI/AI environment
+# Targets: CachyOS / Arch Linux (pacman + AUR helper)
+#
+
+set -euo pipefail
+
+log_info() {
+    echo -e "\e[34m[INFO]\e[0m $1"
+}
+
+log_success() {
+    echo -e "\e[32m[SUCCESS]\e[0m $1"
+}
+
+log_warn() {
+    echo -e "\e[33m[WARNING]\e[0m $1"
+}
+
+log_error() {
+    echo -e "\e[31m[ERROR]\e[0m $1" >&2
+}
+
+if ! command -v pacman &>/dev/null; then
+    log_error "This script requires the 'pacman' package manager (Arch Linux / CachyOS target)."
+    exit 1
+fi
+
+# Detect AUR helper
+AUR_HELPER=""
+if command -v yay &>/dev/null; then
+    AUR_HELPER="yay"
+elif command -v paru &>/dev/null; then
+    AUR_HELPER="paru"
+fi
+
+# Core official packages
+OFFICIAL_PACKAGES=(
+    hyprland
+    hyprpaper
+    hyprlock
+    waybar
+    fuzzel
+    yazi
+    kitty
+    grim
+    slurp
+    wl-clipboard
+    pavucontrol
+    ttf-jetbrains-mono
+    otf-font-awesome
+    sddm
+    neovim
+    lazygit
+    cliphist
+    mako
+    rbw
+    zsh
+    cachyos-themes-sddm
+)
+
+# Packages that might be in AUR depending on the base distro config
+AUR_PACKAGES=(
+    lazydocker
+    swayosd-git
+    hyprpolkitagent
+)
+
+log_info "Installing official system packages..."
+sudo pacman -S --needed --noconfirm "${OFFICIAL_PACKAGES[@]}"
+
+if [ -n "$AUR_HELPER" ]; then
+    log_info "Installing AUR packages via $AUR_HELPER..."
+    $AUR_HELPER -S --needed --noconfirm "${AUR_PACKAGES[@]}"
+else
+    log_warn "No AUR helper (yay/paru) detected. Installing remaining packages if available via pacman or fallback..."
+    # Some distros like CachyOS have these in their official repositories
+    for pkg in "${AUR_PACKAGES[@]}"; do
+        if pacman -Si "$pkg" &>/dev/null; then
+            sudo pacman -S --needed --noconfirm "$pkg"
+        else
+            log_error "AUR package '$pkg' cannot be installed because no AUR helper (yay/paru) is present."
+        fi
+    done
+fi
+
+log_success "Package installation complete!"
