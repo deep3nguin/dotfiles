@@ -3,7 +3,8 @@ gui:
   scrollHeight: 2
   theme:
     activeBorderColor:
-      - '#00FF8A' # Growth Green
+      - '#41a1cf' # Signal Blue
       - bold
     inactiveBorderColor:
-      - '#111111' # Surface Dark
+      - '#dee2de' # Mist border
+

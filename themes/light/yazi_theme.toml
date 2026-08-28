@@ -6,7 +6,7 @@
 overall = { fg = "#171717", bg = "#fefffc" }
 
 [manager]
-# Highlights current directory in cerulean (#0081c0)
+# Highlights current directory in primary-dark (#0081c0)
 cwd = { fg = "#0081c0", bold = true }
 
 # Character used to draw separation borders
@@ -19,7 +19,7 @@ border_style = { fg = "#dee2de" }
 marker_copied   = { fg = "#41a1cf", bg = "#41a1cf" }
 # Cut badge uses dusk (#1f1f29)
 marker_cut      = { fg = "#1f1f29", bg = "#1f1f29" }
-# Marked badge uses cerulean (#0081c0)
+# Marked badge uses primary-dark (#0081c0)
 marker_marked   = { fg = "#0081c0", bg = "#0081c0" }
 # Multi-select badge uses primary accent (#41a1cf)
 marker_selected = { fg = "#41a1cf", bg = "#41a1cf" }
@@ -63,7 +63,7 @@ progress_error  = { fg = "#1f1f29", bg = "#f9faf7" }
 
 # Permission separators use mist (#dee2de)
 perm_sep  = { fg = "#dee2de" }
-# Permission directory indicator uses cerulean (#0081c0)
+# Permission directory indicator uses primary-dark (#0081c0)
 perm_type = { fg = "#0081c0" }
 # Read permissions use ash (#646464)
 perm_read = { fg = "#646464" }
@@ -91,7 +91,7 @@ inactive = {}
 [completion]
 # Autocomplete popup borders use mist border (#dee2de)
 border   = { fg = "#dee2de" }
-# Active autocomplete selection uses cerulean (#0081c0) on linen (#f9faf7)
+# Active autocomplete selection uses primary-dark (#0081c0) on linen (#f9faf7)
 active   = { fg = "#0081c0", bg = "#f9faf7", bold = true }
 # Inactive autocomplete items inherit default styling
 inactive = {}
@@ -111,7 +111,7 @@ mask = { bg = "#fefffc" }
 cand = { fg = "#41a1cf" }
 # Remaining keys in layout use ash (#646464)
 rest = { fg = "#646464" }
-# Descriptions use cerulean (#0081c0)
+# Descriptions use primary-dark (#0081c0)
 desc = { fg = "#0081c0" }
 # Separator string between key and description
 separator = " ➔ "
@@ -121,7 +121,7 @@ separator_style = { fg = "#dee2de" }
 [help]
 # Help keys use primary accent (#41a1cf)
 on   = { fg = "#41a1cf" }
-# Help execution command uses cerulean (#0081c0)
+# Help execution command uses primary-dark (#0081c0)
 run  = { fg = "#0081c0" }
 # Help descriptions use foreground (#171717)
 desc = { fg = "#171717" }
@@ -131,7 +131,7 @@ hover = { fg = "#ffffff", bg = "#1f1f29" }
 [filetype]
 # Defines syntax highlighting styles based on file extensions or mime-types
 rules = [
-  # Directories use cerulean (#0081c0) and bold formatting
+  # Directories use primary-dark (#0081c0) and bold formatting
   { url = "*/", fg = "#0081c0", bold = true },
   
   # Media files use primary accent (#41a1cf)
@@ -139,7 +139,7 @@ rules = [
   { mime = "video/*", fg = "#41a1cf" },
   { mime = "audio/*", fg = "#41a1cf" },
   
-  # Archives and compressed files use cerulean (#0081c0)
+  # Archives and compressed files use primary-dark (#0081c0)
   { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#0081c0" },
   
   # Text files use standard foreground (#171717)

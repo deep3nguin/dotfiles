@@ -1,5 +1,5 @@
 return {
-    active_border_1 = "41A1CF",
-    active_border_2 = "0081C0",
-    inactive_border = "DEE2DE",
+    active_border_1 = "41a1cf",
+    active_border_2 = "0081c0",
+    inactive_border = "dee2de",
 }

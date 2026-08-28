@@ -2,23 +2,24 @@
 gui:
   theme:
     activeBorderColor:
-      - '#00FF8A' # Growth Green
+      - '#41a1cf' # Signal Blue
       - bold
     inactiveBorderColor:
-      - '#111111' # Surface Dark
+      - '#dee2de' # Mist border
     searchingActiveBorderColor:
-      - '#00BFD6' # Action Cyan
+      - '#0081c0' # Cerulean / primary-dark
       - bold
     optionsTextColor:
-      - '#00BFD6' # Action Cyan
+      - '#0081c0' # Cerulean / primary-dark
     selectedLineBgColor:
-      - '#111111' # Surface Medium
+      - '#f9faf7' # Linen surface wash
     cherryPickedCommitBgColor:
-      - '#111111' # Surface Medium
+      - '#f9faf7' # Linen surface wash
     cherryPickedCommitFgColor:
-      - '#00FF8A' # Growth Green
+      - '#41a1cf' # Signal Blue
     unstagedChangesColor:
-      - '#ffb4ab' # Error
+      - '#1f1f29' # Dusk / Danger
+
 git:
   paging:
     colorArg: always

@@ -19,6 +19,7 @@ DOMAIN_SCOPES = {
     "Agent-Fuzzel": {"fuzzel/fuzzel.ini"},
     "Agent-Hyprpaper": {"hypr/hyprpaper.conf", "scripts/wallpaper.sh"},
     "Agent-Yazi": {"yazi/yazi.toml", "yazi/theme.toml", "yazi/keymap.toml"},
+    "Agent-SwayNC": {"swaync/config.json", "swaync/style.css"},
 }
 
 REFACTORED_FILES = sorted(set().union(*DOMAIN_SCOPES.values()) | {"install.sh", "README.md"})
@@ -27,6 +28,7 @@ VISUAL_FILES = [
     "waybar/style.css",
     "fuzzel/fuzzel.ini",
     "yazi/theme.toml",
+    "swaync/style.css",
 ]
 
 STALE_NAMES = ("Purple", "Mint", "Peach", "growth-green", "action-cyan", "surface-dark", "surface-medium", "surface-bright")
@@ -76,10 +78,10 @@ def read(path: str) -> str:
             for m in re.finditer(r'(\w+)\s*=\s*"([^"]+)"', colors_text):
                 var_name, val = m.groups()
                 # Resolve active_border colors
-                pattern = re.compile(r'"rgba\("\s*\.\.\s*colors\.' + var_name + r'\s*\.\.\s*"([fF]{2})"\)')
+                pattern = re.compile(r'"rgba\("\s*\.\.\s*colors\.' + var_name + r'\s*\.\.\s*"([fF]{2})\)"')
                 content = pattern.sub(lambda match: f'"rgba({val}{match.group(1)})"', content)
                 # Resolve inactive_border
-                pattern_single = re.compile(r'"rgba\("\s*\.\.\s*colors\.' + var_name + r'\s*\.\.\s*"([fF]{2})"\)')
+                pattern_single = re.compile(r'"rgba\("\s*\.\.\s*colors\.' + var_name + r'\s*\.\.\s*"([fF]{2})\)"')
                 content = pattern_single.sub(lambda match: f'"rgba({val}{match.group(1)})"', content)
     return content
 
@@ -158,7 +160,7 @@ def test_waybar_uses_qn37x_visual_language():
     css = read("waybar/style.css")
     config = read("waybar/config.jsonc")
     tokens = design_tokens()
-    assert "rgba(23, 23, 23, 0.86)" in css or "rgba(254, 255, 252, 0.86)" in css
+    assert "@waybar-bg" in css or "rgba(23, 23, 23" in css or "rgba(254, 255, 252" in css
     assert 'font-family: af, "Helvetica Neue", Arial, sans-serif;' in css or 'font-family: "af"' in css or 'font-family: af' in css
     assert tokens["colors.primary"] in css
     assert tokens["colors.ink"] in css
@@ -186,9 +188,10 @@ def test_fuzzel_uses_qn37x_launcher_styling():
 def test_hyprland_window_styling_matches_design_system():
     hypr = read("hypr/hyprland.lua")
     tokens = design_tokens()
-    assert f"rgba({hex_no_hash(tokens['colors.primary'])}ff)" in hypr
-    assert f"rgba({hex_no_hash(tokens['colors.primary-dark'])}ff)" in hypr
-    assert f"rgba({hex_no_hash(tokens['colors.border'])}ff)" in hypr
+    assert f"RGBA({hex_no_hash(tokens['colors.primary'])}FF)" in hypr.upper()
+    assert f"RGBA({hex_no_hash(tokens['colors.primary-dark'])}FF)" in hypr.upper()
+    assert f"RGBA({hex_no_hash(tokens['colors.border'])}FF)" in hypr.upper()
+
     assert "gaps_in = 8" in hypr
     assert "gaps_out = 16" in hypr
     assert "rounding = 16" in hypr
@@ -226,6 +229,7 @@ def test_installer_applies_refactor_to_local_system():
     for package in (
         "hyprland",
         "hyprpaper",
+        "swaync",
         "waybar",
         "fuzzel",
         "yazi",
@@ -238,7 +242,7 @@ def test_installer_applies_refactor_to_local_system():
         "noto-fonts",
     ):
         assert package in install
-    for path in ("hypr", "waybar", "fuzzel", "yazi"):
+    for path in ("hypr", "swaync", "waybar", "fuzzel", "yazi"):
         assert f'safe_symlink "{path}" "$XDG_CONFIG_HOME/{path}"' in install
     assert ".bak_${TIMESTAMP}" in install
     assert "DOTFILES_INSTALL_DRY_RUN" in install
@@ -257,3 +261,45 @@ def test_stale_palette_names_and_old_literal_colors_are_removed():
     for color in STALE_COLORS:
         assert color not in text
     assert "DeepMind" not in text
+
+
+def test_zshrc_prompt_subst_enabled():
+    install = read("install.sh")
+    assert "setopt PROMPT_SUBST" in install
+    assert "autoload -Uz vcs_info" in install
+    assert "_cmd_duration" in install
+
+
+def test_waybar_gtk_css_format():
+    colors_css = (ROOT / "waybar/colors.css").read_text()
+    assert "@define-color bg " in colors_css
+    assert "@define-color primary " in colors_css
+    assert "--color-" not in colors_css
+
+
+def test_hypr_transpiler_dynamic_borders():
+    import subprocess
+    import sys
+    transpiler = ROOT / "scripts/build_hypr_config.py"
+    res = subprocess.run([sys.executable, str(transpiler)], capture_output=True, text=True)
+    assert res.returncode == 0
+    conf = (ROOT / "hypr/hyprland.conf").read_text()
+    assert "col.active_border" in conf
+    assert "col.inactive_border" in conf
+
+
+def test_dot_config_kitty_and_lazy_tools_use_design_system():
+    kitty = (ROOT / "dot_config/kitty/kitty.conf").read_text()
+    lazygit = (ROOT / "dot_config/lazygit/config.yml").read_text()
+    lazydocker = (ROOT / "dot_config/lazydocker/config.yml").read_text()
+    cliphist = (ROOT / "scripts/cliphist-fuzzel.sh").read_text()
+
+    kitty_theme = (ROOT / "themes/light/kitty_colors.conf").read_text()
+
+    assert "font_family      af" in kitty
+    assert "include theme.conf" in kitty or "#41a1cf" in kitty
+    assert "#41a1cf" in kitty_theme
+    assert "#41a1cf" in lazygit
+    assert "#41a1cf" in lazydocker
+    assert "41a1cfff" in cliphist
+

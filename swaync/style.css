@@ -1,0 +1,353 @@
+/* SwayNC Style Sheet — QN37X Editorial Design System */
+
+/* GTK Color Definitions */
+@define-color bg_parchment #fefffc;
+@define-color bg_paper #ffffff;
+@define-color bg_linen #f9faf7;
+@define-color bg_dusk #1f1f29;
+@define-color bg_twilight #282834;
+@define-color text_ink #171717;
+@define-color text_graphite #2c2c2c;
+@define-color text_charcoal #2c2c2c;
+@define-color text_ash #444141;
+@define-color border_mist #dee2de;
+@define-color primary_signal_blue #41a1cf;
+
+/* Root Design Tokens */
+:root {
+  /* Canvas & Surface Colors */
+  --bg-parchment: #fefffc;
+  --bg-paper: #ffffff;
+  --bg-linen: #f9faf7;
+  --bg-dusk: #1f1f29;
+  --bg-twilight: #282834;
+
+  /* Text & Foreground */
+  --text-ink: #171717;
+  --text-graphite: #2c2c2c;
+  --text-charcoal: #2c2c2c;
+  --text-ash: #444141;
+
+  /* Borders */
+  --border-mist: #dee2de;
+  --border-twilight: #282834;
+
+  /* Primary Accent */
+  --primary-signal-blue: #41a1cf;
+  --primary-signal-blue-hover: #0081c0;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(254, 255, 252, 0.88);
+  --glass-bg-card: rgba(255, 255, 255, 0.94);
+  --glass-shadow: rgba(0, 0, 0, 0.08) 0px 4px 16px 0px;
+
+  /* Typography */
+  --font-af: 'af', sans-serif;
+
+  /* Border Radii Tokens */
+  --radius-popup: 12px;
+  --radius-widget: 12px;
+  --radius-button: 8px;
+  --radius-pill: 50px;
+}
+
+/* Dark Mode Surface Overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-parchment: #1f1f29;
+    --bg-paper: #282834;
+    --bg-linen: #252528;
+    --text-ink: #fefffc;
+    --text-graphite: #dee2de;
+    --text-charcoal: #b4b8b4;
+    --text-ash: #646464;
+    --border-mist: #2c2c2c;
+    --glass-bg: rgba(31, 31, 41, 0.90);
+    --glass-bg-card: rgba(40, 40, 52, 0.94);
+  }
+}
+
+/* Universal Typography & Base Settings */
+* {
+  /* Set global typography to 'af' sans-serif */
+  font-family: var(--font-af);
+  font-size: 14px;
+  color: var(--text-graphite);
+}
+
+/* Background overlay window behind control center */
+.blank-window {
+  /* Soft dimming backdrop for control center overlay */
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* Floating Notification Container */
+.floating-notifications {
+  /* Remove default background container styling */
+  background: transparent;
+}
+
+/* Individual Floating Notification Row */
+.floating-notifications .notification-row {
+  /* Spacing between notification popups */
+  margin: 6px 12px;
+}
+
+/* Notification Box Outer Shell */
+.notification {
+  /* Glassmorphic paper background for notifications */
+  background-color: var(--glass-bg);
+  /* Hairline green-tinted mist border */
+  border: 1px solid var(--border-mist);
+  /* 12px rounded corners for floating popups */
+  border-radius: var(--radius-popup);
+  /* Subtle depth shadow */
+  box-shadow: var(--glass-shadow);
+  /* Inner content padding */
+  padding: 12px;
+  /* Smooth state transition */
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Hover state on notification popup */
+.notification:hover {
+  /* Slightly warmer background on hover */
+  background-color: var(--glass-bg-card);
+  /* Highlight border with primary signal blue */
+  border-color: var(--primary-signal-blue);
+}
+
+/* Notification Header App Name */
+.notification .app-name {
+  /* Muted ash tone for secondary app header label */
+  color: var(--text-ash);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Notification Time Label */
+.notification .time {
+  /* Light secondary timestamp typography */
+  color: var(--text-ash);
+  font-size: 11px;
+}
+
+/* Notification Summary Title */
+.notification .summary {
+  /* High contrast ink black heading text */
+  color: var(--text-ink);
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* Notification Body Content */
+.notification .body {
+  /* Graphite body copy text */
+  color: var(--text-graphite);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* Notification Close Button */
+.close-button {
+  /* Subtle circular button container */
+  background: var(--bg-linen);
+  border: 1px solid var(--border-mist);
+  /* Fully rounded pill radius for circular icon button */
+  border-radius: var(--radius-pill);
+  color: var(--text-ink);
+  padding: 4px;
+}
+
+.close-button:hover {
+  /* Primary blue highlight on close button hover */
+  border-color: var(--primary-signal-blue);
+  color: var(--primary-signal-blue);
+}
+
+/* Action Buttons inside Notifications */
+.notification-action, .notification-default-action {
+  /* Paper white background surface for action controls */
+  background-color: var(--bg-paper);
+  /* 1px solid Mist hairline border */
+  border: 1px solid var(--border-mist);
+  /* 8px border radius for interactive buttons */
+  border-radius: var(--radius-button);
+  /* Signal Blue label text */
+  color: var(--primary-signal-blue);
+  font-weight: 500;
+  padding: 6px 12px;
+  margin-top: 8px;
+}
+
+.notification-action:hover {
+  /* Active Signal Blue hover fill with white text */
+  background-color: var(--primary-signal-blue);
+  border-color: var(--primary-signal-blue);
+  color: var(--bg-paper);
+}
+
+/* SwayNC Control Center Side Panel */
+.control-center {
+  /* Parchment glass background for control center surface */
+  background-color: var(--glass-bg);
+  /* 1px solid Mist hairline border */
+  border: 1px solid var(--border-mist);
+  /* 12px border radius for control center panel */
+  border-radius: var(--radius-widget);
+  /* Elevation shadow */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  padding: 16px;
+  margin: 12px;
+}
+
+/* Control Center Title Widget Header */
+.widget-title {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-mist);
+  margin-bottom: 12px;
+}
+
+.widget-title > label {
+  /* Ink Black title typography */
+  color: var(--text-ink);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Clear All Button in Title Widget */
+.widget-title > button {
+  background: transparent;
+  /* Signal Blue border for outlined secondary CTA */
+  border: 1px solid var(--primary-signal-blue);
+  /* 8px border radius for action buttons */
+  border-radius: var(--radius-button);
+  color: var(--primary-signal-blue);
+  font-weight: 500;
+  padding: 4px 12px;
+}
+
+.widget-title > button:hover {
+  /* Signal Blue background on hover */
+  background-color: var(--primary-signal-blue);
+  color: var(--bg-paper);
+}
+
+/* Do Not Disturb Toggle Widget */
+.widget-dnd {
+  background: var(--bg-paper);
+  border: 1px solid var(--border-mist);
+  border-radius: var(--radius-widget);
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.widget-dnd > label {
+  color: var(--text-ink);
+  font-weight: 500;
+}
+
+/* Switch Toggle Styling for DND Widget */
+.widget-dnd > switch {
+  background-color: var(--bg-linen);
+  border: 1px solid var(--border-mist);
+  /* 50px pill radius for toggle switches */
+  border-radius: var(--radius-pill);
+}
+
+.widget-dnd > switch:checked {
+  /* Active toggle switch background in Signal Blue */
+  background-color: var(--primary-signal-blue);
+  border-color: var(--primary-signal-blue);
+}
+
+.widget-dnd > switch slider {
+  background-color: var(--bg-paper);
+  border-radius: var(--radius-pill);
+}
+
+/* MPRIS Media Player Widget */
+.widget-mpris {
+  background: var(--bg-paper);
+  border: 1px solid var(--border-mist);
+  border-radius: var(--radius-widget);
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.widget-mpris-title {
+  color: var(--text-ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.widget-mpris-subtitle {
+  color: var(--text-ash);
+  font-size: 12px;
+}
+
+/* Volume & Backlight Slider Widgets */
+.widget-volume, .widget-backlight {
+  background: var(--bg-paper);
+  border: 1px solid var(--border-mist);
+  border-radius: var(--radius-widget);
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.widget-volume label, .widget-backlight label {
+  color: var(--primary-signal-blue);
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+.widget-volume trough, .widget-backlight trough {
+  background-color: var(--bg-linen);
+  border: 1px solid var(--border-mist);
+  border-radius: var(--radius-pill);
+  min-height: 8px;
+}
+
+.widget-volume highlight, .widget-backlight highlight {
+  /* Signal Blue slider fill track */
+  background-color: var(--primary-signal-blue);
+  border-radius: var(--radius-pill);
+}
+
+/* Buttons Grid Quick Settings Widget */
+.widget-buttons-grid {
+  background: var(--bg-paper);
+  border: 1px solid var(--border-mist);
+  border-radius: var(--radius-widget);
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background-color: var(--bg-linen);
+  border: 1px solid var(--border-mist);
+  /* 8px border radius for grid action buttons */
+  border-radius: var(--radius-button);
+  color: var(--text-graphite);
+  padding: 10px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  border-color: var(--primary-signal-blue);
+  color: var(--primary-signal-blue);
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:checked {
+  /* Active state filled with Signal Blue */
+  background-color: var(--primary-signal-blue);
+  border-color: var(--primary-signal-blue);
+  color: #ffffff;
+}
+
+/* Empty Notification List Placeholder */
+.control-center-list-placeholder {
+  color: var(--text-ash);
+  font-size: 14px;
+  padding: 24px;
+}

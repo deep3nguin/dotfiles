@@ -12,7 +12,7 @@
 
 /* Base style for the Waybar container */
 #waybar {
-    /* Background using equivalent decimal values for #171717 with opacity */
+    /* Background using dynamic theme background token with opacity */
     background-color: @waybar-bg;
     /* Enable blur filter for backdrop */
     /* backdrop-filter: blur(12px); */
@@ -20,7 +20,7 @@
     border: 1px solid @border;
     /* Corner radius using cards token 12px (nav=50px) */
     border-radius: 12px;
-    /* Default text color using #171717 */
+    /* Default text color using ink black #171717 */
     color: @ink;
 }
 
@@ -36,8 +36,8 @@
 #window {
     /* Font size matching body-md 15px */
     font-size: 15px;
-    /* Font weight matching body-md 400 */
-    font-weight: 400;
+    /* Font weight matching body-md 500 for crisp readability */
+    font-weight: 500;
     /* Default text color using #171717 */
     color: @ink;
     /* Horizontal padding using spacing token sm 16px */
@@ -54,16 +54,16 @@
 #workspaces button {
     /* Font size matching h2/label 13px */
     font-size: 13px;
-    /* Font weight matching label 500 */
-    font-weight: 500;
+    /* Font weight 600 for clear legibility */
+    font-weight: 600;
     /* Letter spacing matching h2 0.08em */
     letter-spacing: 0.08em;
     /* Horizontal padding */
     padding: 0 12px;
     /* Horizontal margin */
     margin: 0 4px;
-    /* Muted text color using Ash token #646464 */
-    color: @ash;
+    /* High contrast text color using charcoal/ink token */
+    color: @charcoal;
     /* Background color using Linen wash #f9faf7 */
     background-color: @primary-tint;
     /* Hairline border using Mist token #dee2de */

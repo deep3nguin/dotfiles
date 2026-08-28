@@ -1,6 +1,7 @@
 -- Autostart configuration for Hyprland (aligned with DESIGN.md design system)
 
 hl.on("hyprland.start", function ()
+    hl.exec_cmd("swaync")     -- Launch Sway Notification Center daemon on startup
     hl.exec_cmd("waybar")     -- Launch Waybar panel on startup
     hl.exec_cmd("hyprpaper")  -- Launch Hyprpaper utility on startup
     hl.exec_cmd("systemctl --user start hyprpolkitagent") -- Launch Hyprpolkitagent authentication daemon

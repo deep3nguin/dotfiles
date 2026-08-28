@@ -1,0 +1,22 @@
+[Unit]
+Description=Hermes Agent Discord Gateway Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/qn37x/.local/bin/hermes gateway start --platform discord
+Restart=on-failure
+RestartSec=10s
+StandardOutput=journal
+StandardError=journal
+
+# Security Hardening Options
+ProtectSystem=full
+ProtectHome=read-only
+ReadWritePaths=/home/qn37x/.hermes
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=default.target
